@@ -159,7 +159,7 @@ def muestra_tabla():
     texto = lista_form.read()
     tabla = Toplevel()
     tabla.withdraw()
-    mb.showinfo(title="TABLA TIEMPOS", message=texto)
+    mb.showinfo(title="MEJORES TIEMPOS", message=texto)
 #destruye el fichero temporal:
     lista_form.close()
 #end muestra_tabla
