@@ -1,5 +1,4 @@
 #juego diferencias
-#con registro y tiempos al final
 
 import time
 #para crear fichero temporal:
