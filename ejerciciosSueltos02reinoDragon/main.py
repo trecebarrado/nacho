@@ -1,12 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#añadido:
-#puntuacion
-#nuevas pruebas
-#vidas
-#opción de continuar donde te mataron
-
 import random
 import time
 
