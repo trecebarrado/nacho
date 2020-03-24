@@ -1,4 +1,5 @@
 #juego diferencias
+#con registro y tiempos al final
 
 import time
 #para crear fichero temporal:
@@ -8,14 +9,13 @@ from tkinter import messagebox as mb
 
 x = 0
 y = 0
+jugador = ""
 #contador aciertos:
 aciertos = 0
 #booleanos para identificar acierto:
 dif1 = False 
 dif2 = False
 dif3 = False
-#valor por defecto si no se introduce nombre de jugador:
-jugador = "anonimo" 
 
 def click_raton(evento):
     global aciertos, dif1, dif2, dif3
@@ -76,18 +76,94 @@ def juego_resuelto():
     TIEMPO TOTAL: """+str(round(tiempo_total,2))+"""\"
     
     FIN DEL JUEGO""")
-#llama a la funcion que graba la tabla de resultados.
-    crea_tabla()
+#llama a la funcion para mostrar la ventana de registro:   
+    ventana_registro()
 #end juego_resuelto
 
+#ventana de registro de jugador:
+def ventana_registro():
+    global registro, entrada
+    registro = Toplevel()
+    registro.geometry()
+    registro.title("Juego diferencias")
+    etiqueta_info = Label(registro, text="Graba tu record:")
+    etiqueta_info.grid(column=0, row=0, columnspan=2, padx=3, pady=3, sticky=W)
+    etiqueta_nombre = Label(registro, text="Nombre:")
+    etiqueta_nombre.grid(column=0, row=1, padx=3, pady=3, sticky=W)
+    entrada = Entry(registro,width=24)
+    entrada.grid(column=1, row=1, padx=3, pady=3, sticky=S+N+E+W)
+    boton_registro = Button(registro,text="Grabar", command=graba_jugador)
+    boton_registro.grid(column=2, row=1, padx=3, pady=3, sticky=S+N+E+W)
+    boton_registro = Button(registro,text="Cancelar", command=salir_sin_grabar)
+    boton_registro.grid(column=1, row=2, padx=3, pady=3, sticky=S+N+E+W)
+    registro.attributes("-topmost", True)
+#end ventana_registro
+
+def graba_jugador():
+    global jugador
+    jugador = entrada.get()
+#llama a la funcion que graba la tabla de resultados.
+    crea_tabla()
+    registro.destroy()
+#llama a la funcion para mostrar mejores tiempos ordenados:
+    muestra_tabla()
+#se finaliza juego:
+    ventana.destroy()
+#end graba_jugador
+
+def salir_sin_grabar():
+    registro.destroy()
+    muestra_tabla()
+    ventana.destroy()
+#end salir_sin_grabar
+
 def crea_tabla():
+    global jugador
+    if not jugador:
+        jugador = "anonimo"
     grabar = open("tiempos.txt","a")
 #el jugador en mayusculas como en las recreativas :)
     grabar.write(jugador.upper()+","+str(tiempo)+"\"\n")
     grabar.close()
-#se finaliza juego:
-    ventana.destroy()
 #end crea_tabla
+
+def muestra_tabla():
+#lee los datos de los resultados y los guarda en una lista por pares:
+    lectura = open("tiempos.txt","r")
+    lista_ord = []
+    for l in lectura:
+        lista = l.split(",")
+        lista_ord.append(lista)
+#se ordena la lista por el 2ª elemento de cada par:
+    lista_ord.sort(key = lambda i : i[1])
+    lectura.close()
+#se crea un fichero temporal para guardar los datos formateados:
+    lista_form = tempfile.TemporaryFile(mode = "w+t")
+    posicion = 0
+    for i in lista_ord:
+        for n in range(0,2,2):
+#graba los 10 mejores resultados:
+            if posicion == 10:
+                break
+            posicion += 1
+            nombre = i[n]
+            record = i[n+1]
+#escribe los datos formateados (posicion, nombre y tiempo):
+            lista_form.write("{:2d}".format(posicion)+". "+nombre+" - Tiempo: "+record.lstrip("0"))
+#pinta el nº de posiciones vacías hasta la 10:
+    resto_pos = 10 - posicion
+    for n in range(resto_pos):
+        posicion += 1
+        lista_form.write("{:2d}".format(posicion)+".\n")
+#se pone al principio del fichero y lee y muestra los datos en un messagebox:
+    lista_form.seek(0)
+    texto = lista_form.read()
+    tabla = Toplevel()
+    tabla.withdraw()
+    mb.showinfo(title="TABLA TIEMPOS", message=texto)
+#destruye el fichero temporal:
+    lista_form.close()
+#end muestra_tabla
 
 def evento_acierto():
 #tiempo parcial al acertar una diferencia:
@@ -108,60 +184,6 @@ def ya_encontrada():
     
     """+ str(3 - aciertos) +""" POR ENCONTRAR""") #se informa del nº de aciertos por encontrar
 #end ya_encontrada
-        
-def guarda_jugador():
-    global jugador
-    #recoge dato de jugador la ventana y la borra:
-    jugador = entrada.get()
-    entrada.delete(0,END)
-#end guarda_jugador
-
-def muestra_tabla():
-#lee los datos de los resultados y los guarda en una lista por pares:
-    lectura = open("tiempos.txt","r")
-    lista_ord = []
-    for l in lectura:
-        lista = l.split(",")
-        lista_ord.append(lista)
-#se ordena la lista por el 2ª elemento de cada par:
-    lista_ord.sort(key = lambda i : i[1])
-    lectura.close()
-#si en la lista de resultados hay algo escritto, se ejecuta el siguiente código
-#si no, no muestra la tabla de tiempos:
-    if lista_ord:
-#se crea un fichero temporal para guardar los datos formateados:
-        lista_form = tempfile.TemporaryFile(mode = "w+t")
-        posicion = 0
-        for i in lista_ord:
-            for n in range(0,2,2):
-#graba los 10 mejores resultados:
-                if posicion == 10:
-                    break
-                posicion += 1
-                nombre = i[n]
-                record = i[n+1]
-#escribe los datos formateados (posicion, nombre y tiempo):
-                lista_form.write("{:2d}".format(posicion)+". "+nombre+" - Tiempo: "+record.lstrip("0"))
-#pinta el nº de posiciones vacías hasta la 10:
-        resto_pos = 10 - posicion
-        for n in range(resto_pos):
-            posicion += 1
-            lista_form.write("{:2d}".format(posicion)+".\n")
-#se pone al principio del fichero y lee y muestra los datos en un messagebox:
-        lista_form.seek(0)
-        texto = lista_form.read()
-        tabla = Toplevel()
-        tabla.withdraw()
-        mb.showinfo(title="TABLA TIEMPOS", message=texto)
-#destruye el fichero temporal:
-        lista_form.close()
-#end muestra_tabla
-
-def jugar():
-    global tini
-    tini = time.time()
-    registro.destroy()
-#end jugar
 
 #ventana principal:
 ventana = Tk()
@@ -175,22 +197,8 @@ canvas.create_image(0, 0, image=imagen, anchor=NW)
 mb.showinfo(title="Juego diferencias", message="""
 ENCUENTRA LAS 3 DIFERENCIAS EN LA IMAGEN DE LA DERECHA""")
 
-#ventana de registro de jugador:
-registro = Toplevel()
-registro.geometry("290x70+250+150")
-registro.title("REGISTRO JUGADOR")
-etiqueta = Label(registro, text="Nombre:")
-etiqueta.grid(column=0, row=0, padx=5, pady=5)
-entrada = Entry(registro,width=24)
-entrada.grid(column=1, row=0, padx=5, pady=5)
-boton_registro = Button(registro,text="Registrar", command=guarda_jugador)
-boton_registro.grid(column=2, row=0, padx=5, pady=5)
-boton_jugar = Button(registro, width=20, text="JUGAR", command=jugar)
-boton_jugar.grid(column=1, row=1, padx=5, pady=5)
-registro.attributes("-topmost", True)
-
-#llama a la funcion para mostrar mensaje informativo con mejores tiempos:
-muestra_tabla()
+#se inicia el tiempo al cerrar la ventana informativa:
+tini = time.time()
 
 ventana.bind("<Button 1>", click_raton)
 ventana.mainloop()
