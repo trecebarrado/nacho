@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>231</width>
+    <height>221</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CONVERSOR €</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	background-color: rgb(176, 184, 255)
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_texto">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Introduce una cantidad de Euros:</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="boton_convertir_a_dolares">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.518, y2:0, stop:0 rgba(85, 85, 255, 255), stop:1 rgba(255, 255, 255, 255));
+	border-radius: 25px;
+}</string>
+    </property>
+    <property name="text">
+     <string>D</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>usa.png</normaloff>usa.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_resultado">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	border-style: inset;
+	border-width: 2px;
+	border-color: rgb(85, 85, 255);
+	border-radius: 4px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="entrada_euros">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	background-color: rgb(255, 255, 255);
+	border-style: inset;
+	border-width: 2px;
+	border-color: rgb(85, 85, 255);
+	border-radius: 4px;
+}</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="boton_convertir_a_libras">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>100</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.518, y2:0, stop:0 rgba(85, 85, 255, 255), stop:1 rgba(255, 255, 255, 255));
+	border-radius: 25px;
+}</string>
+    </property>
+    <property name="text">
+     <string>L</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>uk.png</normaloff>uk.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="boton_convertir_a_yuanes">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>100</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.518, y2:0, stop:0 rgba(85, 85, 255, 255), stop:1 rgba(255, 255, 255, 255));
+	border-radius: 25px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Y</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>china.png</normaloff>china.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
