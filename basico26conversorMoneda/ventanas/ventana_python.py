@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ventana_principal.ui'
+# Form implementation generated from reading ui file 'ventanas\ventana_principal.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
 "    border-radius: 25px;\n"
 "}")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("usa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("ventanas\\../imagenes/usa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.boton_convertir_a_dolares.setIcon(icon)
         self.boton_convertir_a_dolares.setIconSize(QtCore.QSize(32, 32))
         self.boton_convertir_a_dolares.setObjectName("boton_convertir_a_dolares")
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
 "    border-radius: 25px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("uk.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("ventanas\\../imagenes/uk.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.boton_convertir_a_libras.setIcon(icon1)
         self.boton_convertir_a_libras.setIconSize(QtCore.QSize(32, 32))
         self.boton_convertir_a_libras.setObjectName("boton_convertir_a_libras")
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
 "    border-radius: 25px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("china.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("ventanas\\../imagenes/china.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.boton_convertir_a_yuanes.setIcon(icon2)
         self.boton_convertir_a_yuanes.setIconSize(QtCore.QSize(32, 32))
         self.boton_convertir_a_yuanes.setObjectName("boton_convertir_a_yuanes")

@@ -58,7 +58,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>usa.png</normaloff>usa.png</iconset>
+      <normaloff>../imagenes/usa.png</normaloff>../imagenes/usa.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -154,7 +154,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>uk.png</normaloff>uk.png</iconset>
+      <normaloff>../imagenes/uk.png</normaloff>../imagenes/uk.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -183,7 +183,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>china.png</normaloff>china.png</iconset>
+      <normaloff>../imagenes/china.png</normaloff>../imagenes/china.png</iconset>
     </property>
     <property name="iconSize">
      <size>
