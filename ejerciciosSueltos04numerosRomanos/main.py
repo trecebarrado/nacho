@@ -10,7 +10,7 @@ def conversor():
     if num[0] in ("I","V","X","L","C","D","M"):
         ui.label_resultado.setText(conversor_rom(num))
     else:
-        ui.label_resultado.setText(conversor_arab(num))
+        ui.label_resultado.setText(conversor_nat(num))
         
 def conversor_rom(num):
     long = len(num)
@@ -21,13 +21,13 @@ def conversor_rom(num):
         else:
             result -= dicc_r[num[i]]
     obtenido = result + dicc_r[num[long-1]]
-    comprobacion = conversor_arab(str(obtenido))
+    comprobacion = conversor_nat(str(obtenido))
     if num == comprobacion:
         return str(obtenido)
     else:
         return "No es un nº válido"
         
-def conversor_arab(num):
+def conversor_nat(num):
     if not(num.isnumeric()) or int(num) == 0 or int(num) > 3999:
         return "No es un nº válido"
     else:
@@ -62,13 +62,9 @@ def unidades(num):
         return "V" + "I" * (num-5)
     
 app = QtWidgets.QApplication(sys.argv)
-
 MainWindow = QtWidgets.QMainWindow()
-
 ui = ventana_principal.Ui_MainWindow()
 ui.setupUi(MainWindow)
-
 ui.btn_convertir.clicked.connect(conversor)
-
 MainWindow.show()
 sys.exit(app.exec_())
