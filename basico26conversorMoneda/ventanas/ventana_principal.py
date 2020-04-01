@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(231, 221)
         MainWindow.setStyleSheet("* {\n"
 "    background-color: rgb(176, 184, 255)\n"
-"}")
+"}") 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_texto = QtWidgets.QLabel(self.centralwidget)
@@ -117,3 +117,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+    
