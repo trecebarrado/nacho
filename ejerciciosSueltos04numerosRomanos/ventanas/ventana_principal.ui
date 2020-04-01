@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>231</width>
-    <height>233</height>
+    <height>227</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,8 @@
      </font>
     </property>
     <property name="text">
-     <string>Introduce un nº natural o un nº
-romano, menor de 4000:</string>
+     <string>Introduce un nº romano o natural
+menor de 4000:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_resultado">

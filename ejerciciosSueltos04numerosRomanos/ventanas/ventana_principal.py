@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(231, 233)
+        MainWindow.resize(231, 227)
         MainWindow.setStyleSheet("* {\n"
 "    background-image: url(\"marmol.jpg\");\n"
 "}")
@@ -77,8 +77,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "CONVERSOR"))
-        self.label_texto.setText(_translate("MainWindow", "Introduce un nº natural o un nº\n"
-"romano, menor de 4000:"))
+        self.label_texto.setText(_translate("MainWindow", "Introduce un nº romano o natural\n"
+"menor de 4000:"))
         self.btn_convertir.setText(_translate("MainWindow", "CONVERTIR"))
 
 
