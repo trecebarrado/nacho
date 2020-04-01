@@ -40,10 +40,7 @@ def conversor_nat(num):
             elif int(num[i]) == 4:
                 result += dicc[long] + dicc[int("5"+"0"*(long-1))]
                 long -= 1
-            elif int(num[i]) == 5:
-                result += dicc[int("5"+"0"*(long-1))]
-                long -= 1
-            elif int(num[i]) > 5 and int(num[i]) < 9:
+            elif int(num[i]) >= 5 and int(num[i]) < 9:
                 result += dicc[int("5"+"0"*(long-1))] + (dicc[long] * (int(num[i])-5))
                 long -= 1
             elif int(num[i]) == 9:
