@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 from PyQt5.Qt import QMessageBox, QTableWidgetItem
-from PyQt5.QtCore import QFile, QTextStream #para estilo dark
+from PyQt5.QtCore import QFile, QTextStream
 import sys
 from modelo import base
 from modelo.clases import Comic
