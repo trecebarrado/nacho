@@ -72,15 +72,33 @@ def mostrar_tabla():
     
 def borrado_fila():
     fila = vt.txt_id.text()
-    base.query_delete_comic(fila)
-    mostrar_tabla()
-
+    try:
+        int(fila)
+        base.query_delete_comic(fila)
+        mostrar_tabla()
+    except:
+        QMessageBox.about(MainWindow, "Info", "Introduce un nº de Id       ")
+    
 def cambio_dato():
-    campo = vt.txt_campo.text()
-    valor = vt.txt_valor.text()
     id_fila = vt.txt_id_fila.text()
-    base.query_update_comic(campo, valor, id_fila)
-    mostrar_tabla()
+    try:
+        int(id_fila)
+        campo = sin_tilde(vt.txt_campo.text())
+        valor = vt.txt_valor.text()
+        try:
+            base.query_update_comic(campo, valor, id_fila)
+            mostrar_tabla()
+        except:
+            QMessageBox.about(MainWindow, "Info", "Dato de columna no válido       ")
+    except:
+        QMessageBox.about(MainWindow, "Info", "Introduce un nº de Id       ")
+
+def sin_tilde(campo):
+    campo_min = campo.lower()
+    reemplazos = (("á","a"), ("é","e"), ("í","i"))
+    for a,b in reemplazos:
+        campo_min = campo_min.replace(a,b)
+    return campo_min
     
 def salir_app():
     MainWindow.close()
