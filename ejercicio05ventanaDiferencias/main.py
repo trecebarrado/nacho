@@ -1,8 +1,5 @@
-#juego diferencias
-
 import time
-#para crear fichero temporal:
-import tempfile
+import tempfile #para crear fichero temporal:
 from tkinter import *
 from tkinter import messagebox as mb
 
@@ -96,25 +93,22 @@ def ventana_registro():
     boton_cancelar = Button(registro,text="Cancelar", command=salir_sin_grabar)
     boton_cancelar.grid(column=1, row=2, padx=3, pady=3, sticky=W+E)
     registro.attributes("-topmost", True)
-#end ventana_registro
 
 def graba_jugador():
     global jugador
     jugador = entrada.get()
-#llama a la funcion que graba la tabla de resultados.
+#llama a la funcion que graba la tabla de resultados:
     crea_tabla()
     registro.destroy()
 #llama a la funcion para mostrar mejores tiempos ordenados:
     muestra_tabla()
 #se finaliza juego:
     ventana.destroy()
-#end graba_jugador
 
 def salir_sin_grabar():
     registro.destroy()
     muestra_tabla()
     ventana.destroy()
-#end salir_sin_grabar
 
 def crea_tabla():
     global jugador
@@ -124,7 +118,6 @@ def crea_tabla():
 #el jugador en mayusculas como en las recreativas :)
     grabar.write(jugador.upper()+","+str(tiempo)+"\"\n")
     grabar.close()
-#end crea_tabla
 
 def muestra_tabla():
 #lee los datos de los resultados y los guarda en una lista por pares:

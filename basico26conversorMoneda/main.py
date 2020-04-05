@@ -20,23 +20,23 @@ def transformar_a_yuanes():
     introducido_float = float(introducido.replace(",","."))
     yuanes = round((introducido_float * 7.9), 2)
     ui.label_resultado.setText(str(yuanes).replace(".",",")+" Yuanes")
+
+if __name__ == "__main__":   
+    #obligatorio para usar pyqt5:
+    app = QtWidgets.QApplication(sys.argv)
+    #se prepara un MainWindow, es parte del protocolo
+    MainWindow = QtWidgets.QMainWindow()
     
-#obligatorio para usar pyqt5:
-app = QtWidgets.QApplication(sys.argv)
-
-#se prepara un MainWindow, es parte del protocolo
-MainWindow = QtWidgets.QMainWindow()
-
-#crea un objeto de la clase en el archivo generado para preparar la ventana principal (MainWindow)
-#para que tenga todo el diseño que tenga en el Designer
-ui = ventana_python.Ui_MainWindow()
-ui.setupUi(MainWindow)
-
-#todos los widgets y componentes puestos en la ventana por qtdesigner estan en ui
-ui.boton_convertir_a_dolares.clicked.connect(transformar_a_dolares)
-ui.boton_convertir_a_libras.clicked.connect(transformar_a_libras)
-ui.boton_convertir_a_yuanes.clicked.connect(transformar_a_yuanes)
-
-#se muestra la ventana principal de pyqt5
-MainWindow.show()
-sys.exit(app.exec_())
+    #crea un objeto de la clase en el archivo generado para preparar la ventana principal (MainWindow)
+    #para que tenga todo el diseño que tenga en el Designer
+    ui = ventana_python.Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    
+    #todos los widgets y componentes puestos en la ventana por qtdesigner estan en ui
+    ui.boton_convertir_a_dolares.clicked.connect(transformar_a_dolares)
+    ui.boton_convertir_a_libras.clicked.connect(transformar_a_libras)
+    ui.boton_convertir_a_yuanes.clicked.connect(transformar_a_yuanes)
+    
+    #se muestra la ventana principal de pyqt5
+    MainWindow.show()
+    sys.exit(app.exec_())
