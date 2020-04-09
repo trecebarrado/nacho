@@ -164,6 +164,7 @@ def sin_tilde(campo):
 def confirmar_borrado():
     confirmacion = QMessageBox(tabla)
     confirmacion.setIcon(QMessageBox.Warning)
+    confirmacion.setWindowTitle("Confirmación")
     confirmacion.setInformativeText("¿Seguro que deseas borrar\nla fila " + str(fila+1) + "?")
     confirmacion.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
     confirmacion.setDefaultButton(QMessageBox.Cancel)
