@@ -242,6 +242,15 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_titulo</tabstop>
+  <tabstop>txt_autor</tabstop>
+  <tabstop>txt_editorial</tabstop>
+  <tabstop>txt_genero</tabstop>
+  <tabstop>txt_paginas</tabstop>
+  <tabstop>btn_registrar</tabstop>
+  <tabstop>grv_registro</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

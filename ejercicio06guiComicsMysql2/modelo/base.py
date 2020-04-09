@@ -36,9 +36,9 @@ def query_delete_comic(fila):
     bd.commit()
     bd.disconnect()
  
-def query_update_comic(campo, valor, id_fila):
+def query_update_comic(columna, valor, id_fila):
     sql = queries.SQL_UPDATE_COMIC
-    sqlf = sql.format(campo)
+    sqlf = sql.format(columna)
     bd = conectar()
     cursor = bd.cursor()
     valores = (valor, id_fila)

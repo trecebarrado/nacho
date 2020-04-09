@@ -20,7 +20,7 @@
    <widget class="QLabel" name="lbl_titulo">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>273</x>
       <y>110</y>
       <width>351</width>
       <height>31</height>
@@ -54,7 +54,7 @@
    <widget class="QLabel" name="lbl_subtitulo">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>332</x>
       <y>150</y>
       <width>251</width>
       <height>61</height>
@@ -107,6 +107,8 @@
     <addaction name="subm_listado"/>
     <addaction name="subm_tabla"/>
     <addaction name="separator"/>
+    <addaction name="subm_inicio"/>
+    <addaction name="separator"/>
     <addaction name="subm_salir"/>
    </widget>
    <addaction name="menu_principal"/>
@@ -152,6 +154,11 @@
   <action name="subm_salir">
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="subm_inicio">
+   <property name="text">
+    <string>Inicio</string>
    </property>
   </action>
  </widget>

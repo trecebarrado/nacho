@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ventana_tabla.ui'
+# Form implementation generated from reading ui file 'ventana_nueva_tabla.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_tabla = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_tabla.setGeometry(QtCore.QRect(20, 0, 231, 31))
+        self.lbl_tabla.setGeometry(QtCore.QRect(20, 3, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -26,9 +26,12 @@ class Ui_MainWindow(object):
         self.lbl_tabla.setFont(font)
         self.lbl_tabla.setObjectName("lbl_tabla")
         self.tbl_tabla = QtWidgets.QTableWidget(self.centralwidget)
-        self.tbl_tabla.setGeometry(QtCore.QRect(20, 30, 621, 231))
+        self.tbl_tabla.setGeometry(QtCore.QRect(20, 34, 621, 281))
+        self.tbl_tabla.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.tbl_tabla.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
+        self.tbl_tabla.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tbl_tabla.setAlternatingRowColors(False)
+        self.tbl_tabla.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tbl_tabla.setObjectName("tbl_tabla")
         self.tbl_tabla.setColumnCount(6)
         self.tbl_tabla.setRowCount(0)
@@ -49,6 +52,7 @@ class Ui_MainWindow(object):
         self.tbl_tabla.horizontalHeader().setStretchLastSection(True)
         self.tbl_tabla.verticalHeader().setDefaultSectionSize(22)
         self.tbl_tabla.verticalHeader().setMinimumSectionSize(21)
+        self.tbl_tabla.setColumnHidden(0, True)
         header = self.tbl_tabla.horizontalHeader()       
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
@@ -56,37 +60,23 @@ class Ui_MainWindow(object):
         header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
         header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
         self.btn_borrar = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_borrar.setGeometry(QtCore.QRect(531, 290, 111, 21))
+        self.btn_borrar.setGeometry(QtCore.QRect(471, 320, 171, 21))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.btn_borrar.setFont(font)
         self.btn_borrar.setObjectName("btn_borrar")
-        self.txt_id = QtWidgets.QLineEdit(self.centralwidget)
-        self.txt_id.setGeometry(QtCore.QRect(494, 290, 31, 21))
-        self.txt_id.setText("")
-        self.txt_id.setObjectName("txt_id")
-        self.lbl_borrar = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_borrar.setGeometry(QtCore.QRect(297, 290, 193, 20))
-        self.lbl_borrar.setObjectName("lbl_borrar")
-        self.txt_id_fila = QtWidgets.QLineEdit(self.centralwidget)
-        self.txt_id_fila.setGeometry(QtCore.QRect(280, 267, 31, 21))
-        self.txt_id_fila.setText("")
-        self.txt_id_fila.setObjectName("txt_id_fila")
         self.btn_cambiar = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_cambiar.setGeometry(QtCore.QRect(531, 267, 111, 21))
+        self.btn_cambiar.setGeometry(QtCore.QRect(290, 320, 171, 21))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.btn_cambiar.setFont(font)
         self.btn_cambiar.setObjectName("btn_cambiar")
-        self.lbl_cambiar = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_cambiar.setGeometry(QtCore.QRect(19, 267, 261, 20))
-        self.lbl_cambiar.setObjectName("lbl_cambiar")
-        self.txt_campo = QtWidgets.QLineEdit(self.centralwidget)
-        self.txt_campo.setGeometry(QtCore.QRect(317, 267, 61, 21))
-        self.txt_campo.setText("")
-        self.txt_campo.setObjectName("txt_campo")
-        self.txt_valor = QtWidgets.QLineEdit(self.centralwidget)
-        self.txt_valor.setGeometry(QtCore.QRect(384, 267, 141, 21))
-        self.txt_valor.setText("")
-        self.txt_valor.setObjectName("txt_valor")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        MainWindow.setTabOrder(self.btn_cambiar, self.btn_borrar)
+        MainWindow.setTabOrder(self.btn_borrar, self.tbl_tabla)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -105,14 +95,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Páginas"))
         item = self.tbl_tabla.horizontalHeaderItem(5)
         item.setText(_translate("MainWindow", "Género"))
-        self.btn_borrar.setText(_translate("MainWindow", "Borrar fila"))
-        self.txt_id.setPlaceholderText(_translate("MainWindow", "Id"))
-        self.lbl_borrar.setText(_translate("MainWindow", "Para borrar una fila, indica su nº de Id: "))
-        self.txt_id_fila.setPlaceholderText(_translate("MainWindow", "Id"))
-        self.btn_cambiar.setText(_translate("MainWindow", "Cambiar dato"))
-        self.lbl_cambiar.setText(_translate("MainWindow", "Para cambiar un dato, rellena los siguientes campos:"))
-        self.txt_campo.setPlaceholderText(_translate("MainWindow", "columna"))
-        self.txt_valor.setPlaceholderText(_translate("MainWindow", "Nuevo dato"))
+        self.btn_borrar.setText(_translate("MainWindow", "Borrar fila actual"))
+        self.btn_cambiar.setText(_translate("MainWindow", "Editar dato seleccionado"))
 
 
 if __name__ == "__main__":

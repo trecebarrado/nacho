@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ventana_registro.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -108,6 +108,12 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        MainWindow.setTabOrder(self.txt_titulo, self.txt_autor)
+        MainWindow.setTabOrder(self.txt_autor, self.txt_editorial)
+        MainWindow.setTabOrder(self.txt_editorial, self.txt_genero)
+        MainWindow.setTabOrder(self.txt_genero, self.txt_paginas)
+        MainWindow.setTabOrder(self.txt_paginas, self.btn_registrar)
+        MainWindow.setTabOrder(self.btn_registrar, self.grv_registro)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
