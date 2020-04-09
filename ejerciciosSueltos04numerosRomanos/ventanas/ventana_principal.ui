@@ -58,7 +58,7 @@ menor de 4000:</string>
      <string notr="true">* {
 	border-style: inset;
 	border-width:5px;
-	border-color: rgb(170, 170, 255);
+	border-color: rgb(159, 160, 167);
 }</string>
     </property>
     <property name="frameShape">
@@ -97,7 +97,7 @@ menor de 4000:</string>
 	background-color: rgb(255, 255, 255);
 	border-style: inset;
 	border-width: 5px;
-	border-color: rgb(170, 170, 255);
+	border-color: rgb(159, 160, 167);
 }</string>
     </property>
     <property name="frame">
