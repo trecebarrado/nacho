@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ventana_nueva_listado.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -15,10 +15,11 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(665, 354)
         MainWindow.setWindowOpacity(1.0)
+        MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/icon.png"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_listado = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_listado.setGeometry(QtCore.QRect(20, 3, 161, 31))
+        self.lbl_listado.setGeometry(QtCore.QRect(22, 3, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -27,7 +28,7 @@ class Ui_MainWindow(object):
         self.lbl_listado.setFont(font)
         self.lbl_listado.setObjectName("lbl_listado")
         self.lst_listado = QtWidgets.QListWidget(self.centralwidget)
-        self.lst_listado.setGeometry(QtCore.QRect(20, 34, 621, 298))
+        self.lst_listado.setGeometry(QtCore.QRect(22, 34, 621, 298))
         self.lst_listado.setMinimumSize(QtCore.QSize(0, 251))
         self.lst_listado.setAlternatingRowColors(True)
         self.lst_listado.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)

@@ -4,8 +4,7 @@ from PyQt5.QtCore import QFile, QTextStream, Qt
 import sys
 from modelo import base
 from modelo.clases import Comic
-from ventanas import ventana_principal, ventana_registro, ventana_catalogo, ventana_nueva_tabla, ventana_nueva_listado,\
-    ventana_cambio
+from ventanas import ventana_principal, ventana_registro, ventana_catalogo, ventana_nueva_tabla, ventana_nueva_listado, ventana_cambio
 import re
 
 
@@ -23,7 +22,7 @@ def registro_comic():
     re_paginas = "\d{1,4}\Z"
     check_paginas = re.match(re_paginas, paginas)
     if not titulo:
-        QMessageBox.about(MainWindow, "Registro", "El campo Título no puede estar vacío      ")
+        QMessageBox.about(MainWindow, "Registro", "El campo Título no puede estar vacío        ")
     elif check_paginas:
         comic.titulo = titulo
         comic.autor = autor
@@ -36,10 +35,9 @@ def registro_comic():
         vr.txt_editorial.setText("")
         vr.txt_paginas.setText("")
         vr.txt_genero.setText("")
-        QMessageBox.about(MainWindow, "Registro","Comic registrado      ")
+        QMessageBox.about(MainWindow, "Registro","Comic registrado        ")
     else:
-        vr.txt_paginas.setText("")
-        QMessageBox.about(MainWindow, "Registro","Dato páginas incorrecto      ")
+        QMessageBox.about(MainWindow, "Registro","Dato páginas incorrecto        ")
 
 def mostrar_catalogo():
     vc.setupUi(MainWindow)
@@ -108,6 +106,16 @@ def crear_tabla():
     vnt.btn_cambiar.clicked.connect(cambiar_dato)
     vnt.btn_borrar.setEnabled(False)
     vnt.btn_borrar.clicked.connect(borrar_fila)
+    vnt.btn_click.clicked.connect(click)
+    vnt.btn_clear.clicked.connect(clear)
+
+def click():
+    vnt.tbl_tabla.clearSelection()
+    vnt.btn_cambiar.setEnabled(False)
+    vnt.btn_borrar.setEnabled(False)
+    
+def clear():
+    cargar_tabla()
 
 def borrar_fila():
     global fila, id_fila
@@ -134,17 +142,15 @@ def comprobar_cambio():
     global valor
     valor = vnc.txt_cambio.text()
     valor_bool = bool(valor)
-    print(valor_bool)
-    print(id_columna)
     if id_columna == 4:
         try:
             int(valor_celda)
             int(valor)
             guardar_cambio()
         except:
-            QMessageBox.about(tabla, "Error","Dato páginas incorrecto      ")
+            QMessageBox.about(cambio, "Error","Dato páginas incorrecto        ")
     elif valor_bool == False and id_columna == 1:
-        QMessageBox.about(tabla, "Error","El campo Título no puede estar vacío      ")
+        QMessageBox.about(cambio, "Error","El campo Título no puede estar vacío        ")
     else:
         guardar_cambio()
 
@@ -177,6 +183,7 @@ def confirmar_borrado():
         base.query_delete_comic(id_fila)
         cargar_tabla()
 
+
 app = QtWidgets.QApplication(sys.argv)
 
 #estilo dark:
@@ -203,7 +210,6 @@ tabla.move(420,220)
 
 cambio = QtWidgets.QMainWindow(None, QtCore.Qt.WindowStaysOnTopHint)
 vnc = ventana_cambio.Ui_MainWindow()
-cambio.move(390,200)
 
 MainWindow.show()
 sys.exit(app.exec_())

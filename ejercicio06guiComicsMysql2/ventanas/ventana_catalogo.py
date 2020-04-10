@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ventana_catalogo.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_catalogo = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_catalogo.setGeometry(QtCore.QRect(20, 10, 161, 31))
+        self.lbl_catalogo.setGeometry(QtCore.QRect(22, 3, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.lbl_catalogo.setFont(font)
         self.lbl_catalogo.setObjectName("lbl_catalogo")
         self.txt_catalogo = QtWidgets.QTextEdit(self.centralwidget)
-        self.txt_catalogo.setGeometry(QtCore.QRect(20, 40, 621, 261))
+        self.txt_catalogo.setGeometry(QtCore.QRect(22, 34, 621, 267))
         self.txt_catalogo.setAcceptDrops(False)
         self.txt_catalogo.setReadOnly(True)
         self.txt_catalogo.setTextInteractionFlags(QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)

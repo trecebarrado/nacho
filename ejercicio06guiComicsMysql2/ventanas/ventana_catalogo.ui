@@ -17,8 +17,8 @@
    <widget class="QLabel" name="lbl_catalogo">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
+      <x>22</x>
+      <y>3</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -38,10 +38,10 @@
    <widget class="QTextEdit" name="txt_catalogo">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
+      <x>22</x>
+      <y>34</y>
       <width>621</width>
-      <height>261</height>
+      <height>267</height>
      </rect>
     </property>
     <property name="acceptDrops">

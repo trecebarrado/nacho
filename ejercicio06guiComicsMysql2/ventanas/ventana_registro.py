@@ -14,6 +14,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(665, 354)
+        MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/icon.png"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_registro = QtWidgets.QLabel(self.centralwidget)

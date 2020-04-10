@@ -14,6 +14,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(665, 354)
+        MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/icon.png"))
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -95,7 +96,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", " GESTOR COMICS"))
         self.lbl_titulo.setText(_translate("MainWindow", "BIBLIOTECA COMICS"))
-        self.lbl_subtitulo.setText(_translate("MainWindow", "Registro y catálogo de Comics."))
+        self.lbl_subtitulo.setText(_translate("MainWindow", "Registro y catálogo de Comics"))
         self.menu_principal.setTitle(_translate("MainWindow", "Menú principal"))
         self.subm_registro.setText(_translate("MainWindow", "Registro Comic"))
         self.subm_catalogo.setText(_translate("MainWindow", "Catálogo Comics"))

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string> GESTOR COMICS</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../Users/Administrator/Pictures/icon.png</normaloff>../../../../Users/Administrator/Pictures/icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -69,7 +73,7 @@
      <string notr="true">* {color: #148CD2;}</string>
     </property>
     <property name="text">
-     <string>Registro y catálogo de Comics.</string>
+     <string>Registro y catálogo de Comics</string>
     </property>
    </widget>
   </widget>
