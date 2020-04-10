@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(665, 354)
         MainWindow.setWindowOpacity(1.0)
-        MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/icon.png"))
+        MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/window_icon.png"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_listado = QtWidgets.QLabel(self.centralwidget)
