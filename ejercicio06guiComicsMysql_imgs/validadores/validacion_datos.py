@@ -2,8 +2,8 @@ import re
 
 expresion_texto = "^(?![_\-\.\s]).+[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{0,50}(?<![_\-\.])$"
 expresion_paginas = "^[0-9]{1,4}$"
-expresion_tapa = "(Blanda)|(Dura)"
-expresion_coleccion = "(Sí)|(No)"
+expresion_tapa = "(^Blanda$)|(^Dura$)"
+expresion_coleccion = "(^si$)|(^no$)"
 
 def validar_texto(txt):
     validador_texto = re.compile(expresion_texto)

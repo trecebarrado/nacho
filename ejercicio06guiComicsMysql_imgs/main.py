@@ -230,57 +230,49 @@ def editar_comic():
     
 def guardar_comic(id_fila):
     global img_anadida
-    try: #permite cancelar la edidión
-        comic_datos = Comic()
-        comic_datos.id = id_fila
-        comic_datos.titulo = vfc.txt_titulo.text()
-        if not validar_texto(comic_datos.titulo):
-            QMessageBox.about(comic, "Error","El campo Título es incorrecto o no puede estar vacío        ")
-            vfc.txt_titulo.setText(comic_datos.titulo)
-            return
-        comic_datos.autor = vfc.txt_autor.text()
-        if comic_datos.autor and not validar_texto(comic_datos.autor):
-            QMessageBox.about(comic, "Error","El campo Autor es incorrecto        ")
-            vfc.txt_editorial.setText(comic_datos.autor)
-            return
-        comic_datos.editorial = vfc.txt_editorial.text()
-        if comic_datos.editorial and not validar_texto(comic_datos.editorial):
-            QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
-            vfc.txt_editorial.setText(comic_datos.editorial)
-            return
-        comic_datos.genero = vfc.txt_genero.text()
-        if comic_datos.genero and not validar_texto(comic_datos.genero):
-            QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
-            vfc.txt_editorial.setText(comic_datos.genero)
-            return
-        comic_datos.tapa = vfc.txt_tapa.text()
-        if not validar_tapa(comic_datos.tapa):
-            QMessageBox.about(comic, "Error","Indicar 'Blanda' o 'Dura'      ")
-            vfc.txt_editorial.setText(comic_datos.tapa)
-            return
-        comic_datos.paginas = str(vfc.txt_paginas.text())
-        if comic_datos.paginas and not validar_paginas(comic_datos.paginas): #se puede dejar vacío (queda a 0)
-            QMessageBox.about(comic, "Error","Introduce un nº válido      ")
-            vfc.txt_paginas.setText(comic_datos.paginas)
-        dato_coleccion = vfc.txt_coleccion.text()
-        if not validar_coleccion(dato_coleccion):
-            QMessageBox.about(comic, "Error","Indicar 'Sí' o 'No'        ")
-            return
-        if dato_coleccion == "No":
-            comic_datos.coleccion = "0"
-        elif dato_coleccion == "Sí":
-            comic_datos.coleccion = "1"
-        base.query_update_comic_ver(comic_datos)
-        if img_anadida == True:
-            shutil.copy(ruta_imagen,"portadas/" + str(id_fila) + ".jpg")
-            img_anadida = False
-        ficha_comic()
-        abrir_ventana_tabla()
-        vfc.btn_cerrar.setVisible(True)
-    except:
-        ficha_comic()
-        abrir_ventana_tabla()
-        vfc.btn_cerrar.setVisible(True)
+    comic_datos = Comic()
+    comic_datos.id = id_fila
+    comic_datos.titulo = vfc.txt_titulo.text()
+    if not validar_texto(comic_datos.titulo):
+        QMessageBox.about(comic, "Error","El campo Título es incorrecto o no puede estar vacío        ")
+        return
+    comic_datos.autor = vfc.txt_autor.text()
+    if comic_datos.autor and not validar_texto(comic_datos.autor):
+        QMessageBox.about(comic, "Error","El campo Autor es incorrecto        ")
+        return
+    comic_datos.editorial = vfc.txt_editorial.text()
+    if comic_datos.editorial and not validar_texto(comic_datos.editorial):
+        QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
+        return
+    comic_datos.genero = vfc.txt_genero.text()
+    if comic_datos.genero and not validar_texto(comic_datos.genero):
+        QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
+        return
+    comic_datos.tapa = vfc.txt_tapa.text().capitalize()
+    if not validar_tapa(comic_datos.tapa):
+        QMessageBox.about(comic, "Error","Indicar 'Blanda' o 'Dura'      ")
+        return
+    comic_datos.paginas = str(vfc.txt_paginas.text())
+    if comic_datos.paginas and not validar_paginas(comic_datos.paginas): #se puede dejar vacío (queda a 0)
+        QMessageBox.about(comic, "Error","Introduce un nº válido      ")
+        vfc.txt_paginas.setText(comic_datos.paginas)
+    dato_coleccion = vfc.txt_coleccion.text()
+    dato_coleccion_format = format_valor(dato_coleccion)
+    if not validar_coleccion(dato_coleccion_format):
+        QMessageBox.about(comic, "Error","Indicar 'Sí' o 'No'        ")
+        return
+    if dato_coleccion_format == "no":
+        comic_datos.coleccion = "0"
+    else:
+        comic_datos.coleccion = "1"
+    base.query_update_comic_ver(comic_datos)
+    if img_anadida == True:
+        shutil.copy(ruta_imagen,"portadas/" + str(id_fila) + ".jpg")
+        img_anadida = False
+    ficha_comic()
+    abrir_ventana_tabla()
+    vfc.btn_cerrar.setVisible(True)
+
         
 def anadir_portada_comic(id_fila): #funcion para añadir portada en celdas sin ella
     global img_anadida
@@ -328,7 +320,7 @@ def anadir_portada(): #funcion para añadir portada en celdas sin ella
         sys.exc_info()
         
 def guardar_dato(): #funcion que valida y registra la edicion de datos de la tabla
-    columna = format_columna(nombre_columna) #llama a la funcion que formatea el nombre de la columna
+    columna = format_valor(nombre_columna) #llama a la funcion que formatea el nombre de la columna
     valor = ved.txt_editar_dato.text()
     if id_columna == 4: #validador columna Páginas
         columna = "paginas" #asigna el nombre de la columna ya que en la tabla es 'Pág.'
@@ -336,9 +328,11 @@ def guardar_dato(): #funcion que valida y registra la edicion de datos de la tab
             QMessageBox.about(editar_dato, "Error","Introduce un nº válido      ")
             ved.txt_editar_dato.setText(valor_celda)
             return
-    elif id_columna == 6 and not validar_tapa(valor): #validador columna Tapas
-            QMessageBox.about(editar_dato, "Error","Indicar 'Blanda' o 'Dura'      ")
-            return
+    elif id_columna == 6:
+            valor = valor.capitalize()
+            if not validar_tapa(valor): #validador columna Tapa
+                QMessageBox.about(editar_dato, "Error","Indicar 'Blanda' o 'Dura'      ")
+                return
     elif id_columna == 1 and not validar_texto(valor): #validador columna Título
             QMessageBox.about(editar_dato, "Error","El dato es incorrecto o no puede estar vacío        ")
             ved.txt_editar_dato.setText(valor_celda)
@@ -351,7 +345,7 @@ def guardar_dato(): #funcion que valida y registra la edicion de datos de la tab
     abrir_ventana_tabla() #recarga la tabla para actualizar cambios
     editar_dato.close()
 
-def format_columna(campo): #formatea el nombre de columna a minúsculas y sin acentos para dárselo a la query
+def format_valor(campo): #formatea el nombre de columna a minúsculas y sin acentos para dárselo a la query
     campo_min = campo.lower()
     reemplazos = (("é","e"), ("í","i")) #para eliminar acentos de columnas 'género' y 'título'
     for a,b in reemplazos:
