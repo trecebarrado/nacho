@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>354</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string> GESTOR COMICS</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../Users/Administrator/Pictures/icon.png</normaloff>../../../../Users/Administrator/Pictures/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_titulo">
+    <property name="geometry">
+     <rect>
+      <x>277</x>
+      <y>110</y>
+      <width>351</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>21</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>GESTOR DE COMICS</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_subtitulo">
+    <property name="geometry">
+     <rect>
+      <x>332</x>
+      <y>150</y>
+      <width>251</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {color: #148CD2;}</string>
+    </property>
+    <property name="text">
+     <string>Registro y catálogo de Comics</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_imagen">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-20</y>
+      <width>231</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">*{background-image: url(&quot;estilos/batman.png&quot;); border:1px solid #32414B;}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>665</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu_principal">
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>Menú principal</string>
+    </property>
+    <addaction name="subm_registro"/>
+    <addaction name="subm_catalogo"/>
+    <addaction name="subm_listado"/>
+    <addaction name="subm_tabla"/>
+    <addaction name="separator"/>
+    <addaction name="subm_salir"/>
+   </widget>
+   <addaction name="menu_principal"/>
+  </widget>
+  <action name="subm_registro">
+   <property name="text">
+    <string>Registro Comic</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+  </action>
+  <action name="subm_catalogo">
+   <property name="text">
+    <string>Catálogo Comics</string>
+   </property>
+  </action>
+  <action name="subm_lista_comics">
+   <property name="text">
+    <string>Lista Comics</string>
+   </property>
+  </action>
+  <action name="subm_tabla_Comics">
+   <property name="text">
+    <string>Tabla Comics</string>
+   </property>
+  </action>
+  <action name="subm_listado">
+   <property name="text">
+    <string>Listado Comics</string>
+   </property>
+  </action>
+  <action name="subm_tabla">
+   <property name="text">
+    <string>Tabla Comics</string>
+   </property>
+  </action>
+  <action name="subm_salir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="subm_inicio">
+   <property name="text">
+    <string>Inicio</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
