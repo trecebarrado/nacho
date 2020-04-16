@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ventana_ver_comic.ui'
+# Form implementation generated from reading ui file 'ventana_ficha_comic.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -229,7 +229,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", " GESTOR COMICS - Datos cómic"))
+        MainWindow.setWindowTitle(_translate("MainWindow", " GESTOR COMICS - Ficha cómic"))
         self.txt_editorial.setPlaceholderText(_translate("MainWindow", "Sin dato"))
         self.lbl_genero.setText(_translate("MainWindow", "Género:"))
         self.lbl_paginas.setText(_translate("MainWindow", "Páginas:"))

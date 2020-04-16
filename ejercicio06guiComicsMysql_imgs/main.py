@@ -5,17 +5,13 @@ import sys
 from modelo import base
 from modelo.clases import Comic
 from ventanas import ventana_principal, ventana_registro, ventana_catalogo, ventana_tabla, ventana_listado, \
-ventana_editar_dato, ventana_editar_portada, ventana_ver_comic,\
-    ventana_ver_portada
-from validadores.validacion_datos import validar_texto, validar_paginas, validar_tapa,\
-    validar_coleccion
+ventana_editar_dato, ventana_editar_portada, ventana_ver_portada, ventana_ficha_comic
+from validadores.validacion_datos import validar_texto, validar_paginas, validar_tapa, validar_coleccion
 from _functools import partial
 import shutil
 from pathlib import Path
 import os
 
-img_selecc = False #a True si al registrar se selecciona una imagen. Permite registrar sin imagen
-img_anadida = False #a True si al editar se selecciona una imagen. Permite editar sin imagen
 
 def abrir_ventana_inicio(): #abre ventana principal de la aplicación
     vvpp.setupUi(MainWindow)
@@ -113,7 +109,7 @@ def abrir_ventana_tabla(): #ventana independiente con datos de la base en un Tab
     vt.tbl_tabla.customContextMenuRequested.connect(menu_contextual_tabla) #llama a funcion del menú contextual
     vt.tbl_tabla.itemDoubleClicked.connect(edicion_dato)
     vt.btn_ver.setEnabled(False) #hasta que se seleccione un elemento de la tabla, el botón está inhabilitado
-    vt.btn_ver.clicked.connect(ver_comic)
+    vt.btn_ver.clicked.connect(ficha_comic)
     vt.btn_editar.setEnabled(False) #hasta que se seleccione un elemento de la tabla, el botón está inhabilitado
     vt.btn_editar.clicked.connect(edicion_dato)
     vt.btn_borrar.setEnabled(False) #hasta que se seleccione un elemento de la tabla, el botón está inhabilitado
@@ -147,7 +143,7 @@ def menu_contextual_tabla(position):
         elif seleccion == boton_derecho2:       
             edicion_dato() #llama funcion de editar
         elif seleccion == boton_derecho3:
-            ver_comic()
+            ficha_comic()
     elif id_columna == 7 and not Path("portadas/" + str(id_fila) + ".jpg").is_file(): #en columna 7 (Portadas) solo se muestra opción 'Editar':
         menu = QMenu()
         boton_derecho = menu.addAction("Editar")
@@ -179,94 +175,94 @@ def cargar_tabla(): #crea tabla con la query correspondiente:
             vt.tbl_tabla.setItem(fila, columna, valor)
         fila += 1
         
-def ver_comic(): #abre la ventana para listar cómic
+def ficha_comic(): #abre la ventana para listar cómic
     global id_fila, id_columna, nombre_columna, valor_celda
-    vvc.setupUi(comic)
+    vfc.setupUi(comic)
     fila = vt.tbl_tabla.currentRow() #nº fila seleccionada
     id_fila = vt.tbl_tabla.item(fila, 0).text() #valor de campo 'Id' según nº de fila seleccionada
     comic_selecc = base.query_select_comic(id_fila)
-    vvc.txt_titulo.setText(comic_selecc.titulo)
-    vvc.txt_autor.setText(comic_selecc.autor)
-    vvc.txt_editorial.setText(comic_selecc.editorial)
-    vvc.txt_genero.setText(comic_selecc.genero)
-    vvc.txt_tapa.setText(comic_selecc.tapa)
-    vvc.txt_paginas.setText(str(comic_selecc.paginas))
+    vfc.txt_titulo.setText(comic_selecc.titulo)
+    vfc.txt_autor.setText(comic_selecc.autor)
+    vfc.txt_editorial.setText(comic_selecc.editorial)
+    vfc.txt_genero.setText(comic_selecc.genero)
+    vfc.txt_tapa.setText(comic_selecc.tapa)
+    vfc.txt_paginas.setText(str(comic_selecc.paginas))
     if comic_selecc.coleccion == 0:
         colecc = "No"
     else:
         colecc = "Sí"
-    vvc.txt_coleccion.setText(str(colecc))
+    vfc.txt_coleccion.setText(str(colecc))
     pixmap = QPixmap("portadas/" + str(comic_selecc.id) + ".jpg")
-    vvc.lbl_imagen.setScaledContents(True)
-    vvc.lbl_imagen.setPixmap(pixmap) #muestra imagen seleccionada en el lbl_imagen
-    vvc.btn_editar_portada.setVisible(False) #el botón se activa solo en el modo edición
-    vvc.btn_editar_portada.clicked.connect(partial(anadir_portada_comic, id_fila))
-    vvc.btn_editar.clicked.connect(editar_comic)
-    vvc.btn_cancelar.setVisible(False) #el botón se activa solo en el modo edición
-    vvc.btn_cancelar.clicked.connect(ver_comic)
-    vvc.btn_guardar.setVisible(False) #el botón se activa solo en el modo edición
-    vvc.btn_guardar.clicked.connect(partial(guardar_comic, id_fila))
-    vvc.btn_cerrar.clicked.connect(comic.close)
+    vfc.lbl_imagen.setScaledContents(True)
+    vfc.lbl_imagen.setPixmap(pixmap) #muestra imagen seleccionada en el lbl_imagen
+    vfc.btn_editar_portada.setVisible(False) #el botón se activa solo en el modo edición
+    vfc.btn_editar_portada.clicked.connect(partial(anadir_portada_comic, id_fila))
+    vfc.btn_editar.clicked.connect(editar_comic)
+    vfc.btn_cancelar.setVisible(False) #el botón se activa solo en el modo edición
+    vfc.btn_cancelar.clicked.connect(ficha_comic)
+    vfc.btn_guardar.setVisible(False) #el botón se activa solo en el modo edición
+    vfc.btn_guardar.clicked.connect(partial(guardar_comic, id_fila))
+    vfc.btn_cerrar.clicked.connect(comic.close)
     comic.show()
 
 def editar_comic():
-    vvc.btn_editar.setVisible(False) #se desactiva despues de darle y
-    vvc.btn_cancelar.setVisible(True) #se activa sobre él el botón 'Cancelar'
-    vvc.btn_cerrar.setVisible(False) #se desactiva despues de darle y
-    vvc.btn_guardar.setVisible(True) #se activa sobre él el botón 'Guardar'
-    vvc.btn_editar_portada.setVisible(True)
+    vfc.btn_editar.setVisible(False) #se desactiva despues de darle y
+    vfc.btn_cancelar.setVisible(True) #se activa sobre él el botón 'Cancelar'
+    vfc.btn_cerrar.setVisible(False) #se desactiva despues de darle y
+    vfc.btn_guardar.setVisible(True) #se activa sobre él el botón 'Guardar'
+    vfc.btn_editar_portada.setVisible(True)
     # se habilitan los campos como editables, con el texto en amarillo:
-    vvc.btn_editar_portada.setStyleSheet("*{color: yellow;}")
-    vvc.txt_titulo.setReadOnly(False)
-    vvc.txt_titulo.setStyleSheet("*{color: yellow;}")
-    vvc.txt_autor.setReadOnly(False)
-    vvc.txt_autor.setStyleSheet("*{color: yellow;}")
-    vvc.txt_editorial.setReadOnly(False)
-    vvc.txt_editorial.setStyleSheet("*{color: yellow;}")
-    vvc.txt_genero.setReadOnly(False)
-    vvc.txt_genero.setStyleSheet("*{color: yellow;}")
-    vvc.txt_tapa.setReadOnly(False)
-    vvc.txt_tapa.setStyleSheet("*{color: yellow;}")
-    vvc.txt_paginas.setReadOnly(False)
-    vvc.txt_paginas.setStyleSheet("*{color: yellow;}")
-    vvc.txt_coleccion.setReadOnly(False)
-    vvc.txt_coleccion.setStyleSheet("*{color: yellow;}")
+    vfc.btn_editar_portada.setStyleSheet("*{color: yellow;}")
+    vfc.txt_titulo.setReadOnly(False)
+    vfc.txt_titulo.setStyleSheet("*{color: yellow;}")
+    vfc.txt_autor.setReadOnly(False)
+    vfc.txt_autor.setStyleSheet("*{color: yellow;}")
+    vfc.txt_editorial.setReadOnly(False)
+    vfc.txt_editorial.setStyleSheet("*{color: yellow;}")
+    vfc.txt_genero.setReadOnly(False)
+    vfc.txt_genero.setStyleSheet("*{color: yellow;}")
+    vfc.txt_tapa.setReadOnly(False)
+    vfc.txt_tapa.setStyleSheet("*{color: yellow;}")
+    vfc.txt_paginas.setReadOnly(False)
+    vfc.txt_paginas.setStyleSheet("*{color: yellow;}")
+    vfc.txt_coleccion.setReadOnly(False)
+    vfc.txt_coleccion.setStyleSheet("*{color: yellow;}")
     
 def guardar_comic(id_fila):
     global img_anadida
     try: #permite cancelar la edidión
         comic_datos = Comic()
         comic_datos.id = id_fila
-        comic_datos.titulo = vvc.txt_titulo.text()
+        comic_datos.titulo = vfc.txt_titulo.text()
         if not validar_texto(comic_datos.titulo):
             QMessageBox.about(comic, "Error","El campo Título es incorrecto o no puede estar vacío        ")
-            vvc.txt_titulo.setText(comic_datos.titulo)
+            vfc.txt_titulo.setText(comic_datos.titulo)
             return
-        comic_datos.autor = vvc.txt_autor.text()
+        comic_datos.autor = vfc.txt_autor.text()
         if comic_datos.autor and not validar_texto(comic_datos.autor):
             QMessageBox.about(comic, "Error","El campo Autor es incorrecto        ")
-            vvc.txt_editorial.setText(comic_datos.autor)
+            vfc.txt_editorial.setText(comic_datos.autor)
             return
-        comic_datos.editorial = vvc.txt_editorial.text()
+        comic_datos.editorial = vfc.txt_editorial.text()
         if comic_datos.editorial and not validar_texto(comic_datos.editorial):
             QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
-            vvc.txt_editorial.setText(comic_datos.editorial)
+            vfc.txt_editorial.setText(comic_datos.editorial)
             return
-        comic_datos.genero = vvc.txt_genero.text()
+        comic_datos.genero = vfc.txt_genero.text()
         if comic_datos.genero and not validar_texto(comic_datos.genero):
             QMessageBox.about(comic, "Error","El campo Editorial es incorrecto        ")
-            vvc.txt_editorial.setText(comic_datos.genero)
+            vfc.txt_editorial.setText(comic_datos.genero)
             return
-        comic_datos.tapa = vvc.txt_tapa.text()
+        comic_datos.tapa = vfc.txt_tapa.text()
         if not validar_tapa(comic_datos.tapa):
             QMessageBox.about(comic, "Error","Indicar 'Blanda' o 'Dura'      ")
-            vvc.txt_editorial.setText(comic_datos.tapa)
+            vfc.txt_editorial.setText(comic_datos.tapa)
             return
-        comic_datos.paginas = str(vvc.txt_paginas.text())
+        comic_datos.paginas = str(vfc.txt_paginas.text())
         if comic_datos.paginas and not validar_paginas(comic_datos.paginas): #se puede dejar vacío (queda a 0)
             QMessageBox.about(comic, "Error","Introduce un nº válido      ")
-            vvc.txt_paginas.setText(comic_datos.paginas)
-        dato_coleccion = vvc.txt_coleccion.text()
+            vfc.txt_paginas.setText(comic_datos.paginas)
+        dato_coleccion = vfc.txt_coleccion.text()
         if not validar_coleccion(dato_coleccion):
             QMessageBox.about(comic, "Error","Indicar 'Sí' o 'No'        ")
             return
@@ -278,13 +274,13 @@ def guardar_comic(id_fila):
         if img_anadida == True:
             shutil.copy(ruta_imagen,"portadas/" + str(id_fila) + ".jpg")
             img_anadida = False
-        ver_comic()
+        ficha_comic()
         abrir_ventana_tabla()
-        vvc.btn_cerrar.setVisible(True)
+        vfc.btn_cerrar.setVisible(True)
     except:
-        ver_comic()
+        ficha_comic()
         abrir_ventana_tabla()
-        vvc.btn_cerrar.setVisible(True)
+        vfc.btn_cerrar.setVisible(True)
         
 def anadir_portada_comic(id_fila): #funcion para añadir portada en celdas sin ella
     global img_anadida
@@ -295,12 +291,12 @@ def anadir_portada_comic(id_fila): #funcion para añadir portada en celdas sin e
     try: #prueba lo siguiente para que no se cierre la aplicación si se cancela la selección de imagen
         nueva_imagen = id_fila
         pixmap = QPixmap(ruta_imagen)
-        vvc.lbl_imagen.setPixmap(pixmap)
+        vfc.lbl_imagen.setPixmap(pixmap)
         img_anadida = True
     except:
         pixmap = QPixmap("portadas/" + str(id_fila) + ".jpg")
-        vvc.lbl_imagen.setScaledContents(True)
-        vvc.lbl_imagen.setPixmap(pixmap)
+        vfc.lbl_imagen.setScaledContents(True)
+        vfc.lbl_imagen.setPixmap(pixmap)
         
 def edicion_dato(): #edición celda de la tabla
     global id_fila, id_columna, nombre_columna, valor_celda
@@ -411,7 +407,10 @@ def borrar_portada(id_imagen): #borra imagen de la portada
     vvp.lbl_img_portada.setAlignment(QtCore.Qt.AlignCenter)
     vvp.lbl_img_portada.setText("Sin Portada")
     abrir_ventana_tabla()
-        
+
+
+img_selecc = False #a True si al registrar se selecciona una imagen. Permite registrar sin imagen
+img_anadida = False #a True si al editar se selecciona una imagen. Permite editar sin imagen
 
 app = QtWidgets.QApplication(sys.argv)
 
@@ -447,7 +446,7 @@ editar_portada = QtWidgets.QMainWindow() #ventana edición portadas
 vep = ventana_editar_portada.Ui_MainWindow()
 
 comic = QtWidgets.QMainWindow() #ventana ver cómic
-vvc = ventana_ver_comic.Ui_MainWindow()
+vfc = ventana_ficha_comic.Ui_MainWindow()
 
 MainWindow.show()
 sys.exit(app.exec_())

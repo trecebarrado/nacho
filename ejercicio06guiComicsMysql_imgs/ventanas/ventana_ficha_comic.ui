@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string> GESTOR COMICS - Datos cómic</string>
+   <string> GESTOR COMICS - Ficha cómic</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="txt_editorial">

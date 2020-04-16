@@ -60,7 +60,7 @@
      <string notr="true">* {color: #148CD2;}</string>
     </property>
     <property name="text">
-     <string>Registro y catálogo de Comics</string>
+     <string>Registro y catálogo de Cómics</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_imagen">
@@ -120,7 +120,7 @@
   </widget>
   <action name="subm_registro">
    <property name="text">
-    <string>Registro Comic</string>
+    <string>Registro Cómic</string>
    </property>
    <property name="font">
     <font>
@@ -133,7 +133,7 @@
   </action>
   <action name="subm_catalogo">
    <property name="text">
-    <string>Catálogo Comics</string>
+    <string>Catálogo Cómics</string>
    </property>
   </action>
   <action name="subm_lista_comics">
@@ -148,12 +148,12 @@
   </action>
   <action name="subm_listado">
    <property name="text">
-    <string>Listado Comics</string>
+    <string>Listado Cómics</string>
    </property>
   </action>
   <action name="subm_tabla">
    <property name="text">
-    <string>Tabla Comics</string>
+    <string>Tabla Cómics</string>
    </property>
   </action>
   <action name="subm_salir">
