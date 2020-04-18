@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>354</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string> GESTOR COMICS - Registro</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_registro">
+    <property name="geometry">
+     <rect>
+      <x>271</x>
+      <y>11</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Registro nuevo cómic:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_editorial">
+    <property name="geometry">
+     <rect>
+      <x>343</x>
+      <y>124</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_titulo">
+    <property name="geometry">
+     <rect>
+      <x>343</x>
+      <y>54</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_genero">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>159</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Género:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_paginas">
+    <property name="geometry">
+     <rect>
+      <x>494</x>
+      <y>159</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Páginas:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_autor">
+    <property name="geometry">
+     <rect>
+      <x>343</x>
+      <y>89</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_autor">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>89</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Autor:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_titulo">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>54</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Título:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_editorial">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>124</y>
+      <width>63</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Editorial:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_registrar">
+    <property name="geometry">
+     <rect>
+      <x>274</x>
+      <y>265</y>
+      <width>341</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Registrar Cómic</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_portada">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>194</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Portada cómic:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_imagen">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>193</y>
+      <width>224</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string>Seleccionar imagen</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmb_genero">
+    <property name="geometry">
+     <rect>
+      <x>343</x>
+      <y>159</y>
+      <width>141</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Superhéroes</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ciencia ficción</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Histórico</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Alternativo</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Europeo</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Otros</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="lbl_tapa">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>229</y>
+      <width>44</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tapa:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdb_blanda">
+    <property name="geometry">
+     <rect>
+      <x>326</x>
+      <y>230</y>
+      <width>69</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Blanda</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdb_cartone">
+    <property name="geometry">
+     <rect>
+      <x>401</x>
+      <y>230</y>
+      <width>61</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Dura</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spb_paginas">
+    <property name="geometry">
+     <rect>
+      <x>562</x>
+      <y>159</y>
+      <width>52</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>9999</number>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chb_coleccion">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>230</y>
+      <width>91</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string> Colección</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_imagen">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-20</y>
+      <width>231</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">*{background-image: url(&quot;estilos/batman.png&quot;); border:1px solid #32414B;}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txt_titulo</tabstop>
+  <tabstop>txt_autor</tabstop>
+  <tabstop>txt_editorial</tabstop>
+  <tabstop>cmb_genero</tabstop>
+  <tabstop>spb_paginas</tabstop>
+  <tabstop>btn_imagen</tabstop>
+  <tabstop>rdb_blanda</tabstop>
+  <tabstop>rdb_cartone</tabstop>
+  <tabstop>chb_coleccion</tabstop>
+  <tabstop>btn_registrar</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

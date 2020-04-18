@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>354</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string> GESTOR COMICS - Tabla</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_tabla">
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>3</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tabla datos Cómics:</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tbl_tabla">
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>34</y>
+      <width>621</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>false</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>22</number>
+    </attribute>
+    <attribute name="verticalHeaderMinimumSectionSize">
+     <number>21</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Título</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Autor</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Editorial</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Pág.</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Género</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tapa</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Portada</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="btn_borrar">
+    <property name="geometry">
+     <rect>
+      <x>473</x>
+      <y>320</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Borrar fila actual</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_editar">
+    <property name="geometry">
+     <rect>
+      <x>292</x>
+      <y>320</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Editar dato seleccionado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_deselecc">
+    <property name="geometry">
+     <rect>
+      <x>-2</x>
+      <y>-2</y>
+      <width>670</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+	background-color: transparent;
+	border: none;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_reord">
+    <property name="geometry">
+     <rect>
+      <x>23</x>
+      <y>35</y>
+      <width>32</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Ordenar por fila</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: transparent; border: none; min-width: 1px;} QToolTip {background-color: #148CD2;}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ver">
+    <property name="geometry">
+     <rect>
+      <x>21</x>
+      <y>320</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ver cómic seleccionado</string>
+    </property>
+   </widget>
+   <zorder>btn_deselecc</zorder>
+   <zorder>lbl_tabla</zorder>
+   <zorder>tbl_tabla</zorder>
+   <zorder>btn_borrar</zorder>
+   <zorder>btn_editar</zorder>
+   <zorder>btn_reord</zorder>
+   <zorder>btn_ver</zorder>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>btn_editar</tabstop>
+  <tabstop>btn_borrar</tabstop>
+  <tabstop>tbl_tabla</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

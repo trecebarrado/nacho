@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>316</width>
+    <height>512</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GESTOR COMICS</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_img_portada">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>318</width>
+      <height>470</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">*{font-family: Verdana; font-size: 14px; color: white;}</string>
+    </property>
+    <property name="text">
+     <string>Sin portada</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_cambiar_portada">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>479</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Cambiar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_cerrar_portada">
+    <property name="geometry">
+     <rect>
+      <x>214</x>
+      <y>479</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Aceptar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_borrar_portada">
+    <property name="geometry">
+     <rect>
+      <x>112</x>
+      <y>479</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Borrar</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>btn_cerrar_portada</tabstop>
+  <tabstop>btn_cambiar_portada</tabstop>
+  <tabstop>btn_borrar_portada</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
