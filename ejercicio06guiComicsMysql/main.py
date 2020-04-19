@@ -286,7 +286,7 @@ def guardar_comic(id_fila):
         comic_datos.coleccion = "0"
     else:
         comic_datos.coleccion = "1"
-    base.query_update_comic_ver(comic_datos)
+    base.query_update_ficha(comic_datos)
     try:
         shutil.copy(ruta_imagen,"portadas/" + str(id_fila) + ".jpg")
     except:

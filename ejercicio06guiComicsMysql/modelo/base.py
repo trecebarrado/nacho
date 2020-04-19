@@ -61,8 +61,8 @@ def query_update_comic(columna, valor, id_fila):
     bd.commit()
     bd.disconnect()
 
-def query_update_comic_ver(comic):
-    sql = queries.SQL_UPDATE_COMIC_VER
+def query_update_ficha(comic):
+    sql = queries.SQL_UPDATE_FICHA
     bd = conectar()
     cursor = bd.cursor()
     valores = (comic.titulo, comic.autor, comic.editorial, comic.genero, comic.tapa, comic.paginas, comic.coleccion, comic.id)
