@@ -32,7 +32,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Tabla datos Comics:</string>
+     <string>Tabla datos Cómics:</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tbl_tabla">

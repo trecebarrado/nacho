@@ -114,7 +114,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", " GESTOR COMICS - Tabla"))
-        self.lbl_tabla.setText(_translate("MainWindow", "Tabla datos Comics:"))
+        self.lbl_tabla.setText(_translate("MainWindow", "Tabla datos Cómics:"))
         self.tbl_tabla.setSortingEnabled(True)
         item = self.tbl_tabla.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id"))

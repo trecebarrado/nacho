@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ventana_principal.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -14,8 +14,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(665, 354)
-        MainWindow.setStyleSheet("")
         MainWindow.setWindowIcon(QtGui.QIcon("estilos/dark_icons/window_icon.png"))
+        MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_titulo = QtWidgets.QLabel(self.centralwidget)

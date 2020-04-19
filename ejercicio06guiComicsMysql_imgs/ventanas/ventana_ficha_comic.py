@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ventana_ficha_comic.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
         self.lbl_imagen.setObjectName("lbl_imagen")
         self.txt_genero = QtWidgets.QLineEdit(self.centralwidget)
         self.txt_genero.setEnabled(True)
-        self.txt_genero.setGeometry(QtCore.QRect(237, 129, 131, 20))
+        self.txt_genero.setGeometry(QtCore.QRect(237, 129, 141, 20))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(10)
