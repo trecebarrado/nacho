@@ -1,6 +1,0 @@
-SQL_INSERT_COMIC = "INSERT INTO tabla_comics (Id, titulo, autor, editorial, paginas, genero, tapa, coleccion) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s);"
-SQL_SELECT_COMICS = "SELECT * FROM tabla_comics;"
-SQL_SELECT_COMIC = "SELECT * FROM tabla_comics WHERE Id = %s;"
-SQL_DELETE_COMIC = "DELETE FROM tabla_comics WHERE Id = %s;"
-SQL_UPDATE_COMIC = "UPDATE tabla_comics SET {} = %s WHERE Id = %s;"
-SQL_UPDATE_FICHA = "UPDATE tabla_comics SET titulo = %s, autor = %s, editorial = %s, genero = %s, tapa = %s, paginas = %s, coleccion = %s WHERE Id = %s;"
