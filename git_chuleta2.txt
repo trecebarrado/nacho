@@ -1,6 +1,3 @@
-git config --global alias.log[x] "parameters" --> alias para git log
-Ej.: git config --global alias.logline "log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit"
-
 git checkout -b [rama] --> crear rama
 git checkout master/[rama] --> cambiar entre ramas
 git branch --> ver ramas y la activa
