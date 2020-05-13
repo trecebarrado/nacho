@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Conceptos OPP</title>
+    <script>
+        var pos_actual = window.pageYOffset;
+        window.onscroll = function () {
+            var pos_nueva = window.pageYOffset;
+            if (pos_actual > pos_nueva) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("aside").style.top = "0";
+            }
+            else {
+                document.getElementById("nav").style.top = "-76px";
+                document.getElementById("aside").style.top = "-76px";
+            }
+            pos_actual = pos_nueva;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grid-container">
+
+        <nav id="nav">
+            <section id="top">
+                <p><img src="img/text_logo.png" width="420px"></p>
+                <section id="logos">
+                    <a href="http://www.atento.com/es/" title="Ir a atento.com" target="_blank"><img
+                            src="img/atento.png"></a>
+                    <a href="https://www.experis.es/" title="Ir a experis.es" target="_blank"><img
+                            src="img/experis.png"></a>
+                </section>
+            </section>
+            <section id="bar">
+                <ul id="bar_menu">
+                    <li><a href="index.htm">Inicio</a></li>
+                    <li><a href="_contacto.htm">Contacto</a></li>
+                    <li><span>Menú</span>
+                        <ul id="bar_submenu">
+                            <li><a href="index.htm">Resumen</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                                    target="_blank">Vídeos</a></li>
+                            <li><a href="_ejemplos.htm">Ejemplos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <section id="nav_icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+                </section>
+            </section>
+        </nav>
+
+        <header>
+        </header>
+
+        <aside id="aside">
+            <section id="logo">
+                <a href="img/logo_tent.jpg" target="_blank"><img src="img/logo.png" width="150px"></a>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section id="menu_lat">
+                <span>CONTENIDO</span>
+                <ul>
+                    <a href="index.htm">
+                        <li>Resumen</li>
+                    </a>
+                    <a href="_pilares.htm">
+                        <li>Pilares</li>
+                    </a>
+                    <a href="_conceptos.htm">
+                        <li>Conceptos</li>
+                    </a>
+                    <a href="_tipos.htm">
+                        <li>Tipos</li>
+                    </a>
+                    <a href="_ejemplos.htm">
+                        <li>Ejemplos</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <li>Vídeos</li>
+                    </a>
+                    <a href="_contacto.htm">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+        </aside>
+
+        <main>
+            <section>
+                <a name="top">
+                    <p>
+                        <font face="verdana" size="3px" color="grey"><b>Paradigmas de Programación</b></font>
+                </a>
+                <p>
+                    <font face="verdana" size="6px" color="steelblue"><b>Programación Orientada a Objetos (OOP)</b>
+                    </font>
+                    <br>
+                    <hr>
+                    <section id="pie">
+                        <div style="float: left;">
+                            <a href="_pilares.htm"><i>previo</i></a>
+                        </div>
+                        <div style="float: right;">
+                            <a href="_tipos.htm"><i>siguiente</i></a>
+                        </div>
+                    </section>
+                    <br>
+            </section>
+            <section>
+                <h2>
+                    <font color="steelblue">Conceptos fundamentales
+                </h2>
+                </font>
+                <blockquote>
+                    <table class="bq" width="70%" cellpadding="4px">
+                        <tr align="center">
+                            <td><a href="#clase"><b>Clase</b></a></td>
+                            <td><a href="#herencia"><b>Herencia</b></a></td>
+                            <td><a href="#objeto"><b>Objeto</b></a></td>
+                        </tr>
+                        <tr align="center">
+                            <td><a href="#metodo"><b>Método</b></a></td>
+                            <td><a href="#atributos"><b>Atributos</b></a></td>
+                            <td><a href="#mensaje"><b>Mensaje</b></a></td>
+                        </tr>
+                        <tr align="center">
+                            <td><a href="#propiedad"><b>Propiedad</b></a></td>
+                            <td><a href="#estado"><b>Estado interno</b></a></td>
+                            <td><a href="#miembros"><b>Miembros del objeto</b></a></td>
+                        </tr>
+                    </table>
+                </blockquote>
+                <br>
+                <p>La OPP es una forma de programar que trata de encontrar una solución a estos problemas. Introduce
+                    nuevos conceptos,
+                    que superan y amplían conceptos antiguos ya conocidos. Entre ellos destacan los siguientes:</p>
+                <dl>
+                    <dt>
+                        <font color="cadetblue"><b>Clase</b></font>
+                    </dt><a name="clase"></a>
+                    <dd>Una clase es una especie de "plantilla" en la que se definen los atributos y métodos
+                        predeterminados de un tipo de objeto.
+                        Esta plantilla se crea para poder crear objetos fácilmente.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Herencia</b></font>
+                    </dt><a name="herencia"></a>
+                    <dd>Es la facilidad mediante la cual la clase B hereda en ella cada uno de los atributos y
+                        operaciones de A, como si esos
+                        atributos y operaciones hubiesen sido definidos por la misma D. Por lo tanto, puede usar los
+                        mismos métodos y variables
+                        registrados como "públicos" (public) en C. Los componentes registrados como "privados" (private)
+                        también se heredan pero
+                        se mantienen escondido</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Objeto</b></font>
+                    </dt><a name="objeto"></a>
+                    <dd>Instancia de una clase. Entidad provista de un conjunto de propiedades o atributos (datos) y de
+                        comportamiento o
+                        funcionalidad (métodos), los mismos que consecuentemente reaccionan a eventos. Se corresponden
+                        con los objetos reales del
+                        mundo que nos rodea, o con objetos internos del sistema (del programa).</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Método</b></font>
+                    </dt><a name="metodo"></a>
+                    <dd>Algoritmo asociado a un objeto (o a una clase de objetos), cuya ejecución se desencadena tras la
+                        recepción de un "mensaje".
+                        Desde el punto de vista del comportamiento, es lo que el objeto puede hacer. Un método puede
+                        producir un cambio en las
+                        propiedades del objeto, o la generación de un "evento" con un nuevo mensaje para otro objeto del
+                        sistema.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Atributos</b></font>
+                    </dt><a name="atributos"></a>
+                    <dd>Características que tiene la clase.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Mensaje</b></font>
+                    </dt><a name="mensaje"></a>
+                    <dd>Una comunicación dirigida a un objeto, que le ordena que ejecute uno de sus métodos con ciertos
+                        parámetros asociados al evento
+                        que lo generó.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Propiedad</b></font>
+                    </dt><a name="propiedad"></a>
+                    <dd>Contenedor de un tipo de datos asociados a un objeto (o a una clase de objetos), que hace los
+                        datos visibles desde fuera del objeto
+                        y esto se define como sus características predeterminadas, y cuyo valor puede ser alterado por
+                        la ejecución de algún método.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Estado interno</b></font>
+                    </dt><a name="estado"></a>
+                    <dd>Es una variable que se declara privada, que puede ser únicamente accedida y alterada por un
+                        método del objeto, y que se
+                        utiliza para indicar distintas situaciones posibles para el objeto.</dd>
+                    <br>
+                    <dt>
+                        <font color="cadetblue"><b>Miembros del objeto</b></font>
+                    </dt><a name="miembros"></a>
+                    <dd>Atributos, identidad, relaciones y métodos.</dd>
+                </dl>
+            </section>
+        </main>
+
+        <article>
+            <section>
+                <video width="100%" title="Pilares OOP" controls>
+                    <source src="mm/video.mp4">
+                </video>
+                <p style="font-size: 17px; font-weight: bold; font-style: oblique; margin: 10px 0 -10px 0;">
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <code>&lt;BettaTech&gt;</code>
+                    </a>
+                </p>
+                <h4 style="color: orange">Los 4 PRINCIPIOS de la PROGRAMACIÓN ORIENTADA A OBJETOS</h4>
+                <p>OOP, Programación Orientada a Objetos... ¿Sabes realmente en qué se basa? ¡En éste vídeo encontrarás
+                    los pilares de éste paradigma tan utilizado!</p>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section>
+                <p>Más contenido relacionado de <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                        target="_blank"
+                        style="font-size: 17px; font-weight: bold; font-style: oblique; color: steelblue; margin: 10px 0 0 0;">
+                        <code>&lt;BettaTech&gt;</code></a>:
+                    <P>Paradigmas de Programación:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/bQITKm7-63w" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Machine Learning:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/0OZVOHiOqIw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Microservicios:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/dS8o50otIfo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </section>
+        </article>
+
+        <footer>
+            <section id="footer_icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px%"></a>&nbsp;
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>&nbsp;
+                <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>&nbsp;
+                <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+            </section>
+            <br>
+            <section style="text-align: right;">
+                <p>by nacho.comabella</p>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pilares OPP</title>
+    <script>
+        var pos_actual = window.pageYOffset;
+        window.onscroll = function () {
+            var pos_nueva = window.pageYOffset;
+            if (pos_actual > pos_nueva) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("aside").style.top = "0";
+            }
+            else {
+                document.getElementById("nav").style.top = "-76px";
+                document.getElementById("aside").style.top = "-76px";
+            }
+            pos_actual = pos_nueva;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grid-container">
+
+        <nav id="nav">
+            <section id="top">
+                <p><img src="img/text_logo.png" width="420px"></p>
+                <section id="logos">
+                    <a href="http://www.atento.com/es/" title="Ir a atento.com" target="_blank"><img
+                            src="img/atento.png"></a>
+                    <a href="https://www.experis.es/" title="Ir a experis.es" target="_blank"><img
+                            src="img/experis.png"></a>
+                </section>
+            </section>
+            <section id="bar">
+                <ul id="bar_menu">
+                    <li><a href="index.htm">Inicio</a></li>
+                    <li><a href="_contacto.htm">Contacto</a></li>
+                    <li><span>Menú</span>
+                        <ul id="bar_submenu">
+                            <li><a href="index.htm">Resumen</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                                    target="_blank">Vídeos</a></li>
+                            <li><a href="_ejemplos.htm">Ejemplos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <section id="nav_icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+                </section>
+            </section>
+        </nav>
+
+        <header>
+        </header>
+
+        <aside id="aside">
+            <section id="logo">
+                <a href="img/logo_tent.jpg" target="_blank"><img src="img/logo.png" width="150px"></a>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section id="menu_lat">
+                <span>CONTENIDO</span>
+                <ul>
+                    <a href="index.htm">
+                        <li>Resumen</li>
+                    </a>
+                    <a href="_pilares.htm">
+                        <li>Pilares</li>
+                    </a>
+                    <a href="_conceptos.htm">
+                        <li>Conceptos</li>
+                    </a>
+                    <a href="_tipos.htm">
+                        <li>Tipos</li>
+                    </a>
+                    <a href="_ejemplos.htm">
+                        <li>Ejemplos</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <li>Vídeos</li>
+                    </a>
+                    <a href="_contacto.htm">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+        </aside>
+
+        <main>
+            <section>
+                <p>
+                    <font face="verdana" size="3px" color="grey"><b>Paradigmas de Programación</b></font>
+                    <p>
+                        <font face="verdana" size="6px" color="steelblue"><b>Programación Orientada a Objetos (OOP)</b>
+                        </font>
+                        <br>
+                        <hr>
+                        <section id="pie">
+                            <div style="float: left;">
+                                <a href="index.htm"><i>previo</i></a>
+                            </div>
+                            <div style="float: right;">
+                                <a href="_conceptos.htm"><i>siguiente</i></a>
+                            </div>
+                        </section>
+                        <br>
+            </section>
+            <section>
+                <h2>
+                    <font color="steelblue">Los cuatro pilares de la OOP
+                </h2>
+                </font>
+
+                <p>Para poder manejar de manera eficiente las clases y los objetos que se generan con la Programación
+                    Orientada a Objetos son necesarios
+                    algunos principios que nos ayudarán a reducir la complejidad, ser más eficientes y evitar
+                    problemas.<span style="color: cadetblue;"><b>
+                            Son los 4 pilares de la OOP</b></span>:</p>
+                <ol type="1">
+                    <li>Encapsulación</li>
+                    <li>Abstracción</li>
+                    <li>Herencia</li>
+                    <li>Polimorfismo</li>
+                </ol>
+
+                <h3>
+                    <font color="orange">1. Encapsulación</font>
+                </h3>
+
+                <p>La encapsulación es la característica de un lenguaje OOP que permite que todo lo referente a un
+                    objeto quede aislado dentro de éste.
+                    Es decir, que todos los datos referentes a un objeto queden "encerrados" dentro de éste y sólo se
+                    puede acceder a ellos a través de los
+                    miembros que la clase proporcione (propiedades y métodos).</p>
+
+                <p>Cada objeto está aislado del exterior, es un módulo natural, y la aplicación entera se reduce a un
+                    agregado o rompecabezas de objetos.
+                    El aislamiento protege a los datos asociados a un objeto contra su modificación por quien no tenga
+                    derecho a acceder a ellos, eliminando
+                    efectos secundarios e interacciones.</p>
+
+                <p><img src="img/encap.png" width="45%" id="images"></p>
+
+                <p>De esta forma el usuario de la clase puede obviar la implementación de los métodos y propiedades para
+                    concentrarse sólo en cómo usarlos.
+                    Por otro lado se evita que el usuario pueda cambiar su estado de maneras imprevistas e
+                    incontroladas.</p>
+
+                <h3>
+                    <font color="orange">2. Abstracción</font>
+                </h3>
+                <p>El principio de abstracción lo que implica es que la clase debe representar las características de la
+                    entidad hacia el mundo exterior,
+                    pero ocultando la complejidad que llevan aparejada.</p>
+                <p>La abstracción consiste en aislar un elemento de su contexto o del resto de los elementos que lo
+                    acompañan. En programación, el término
+                    se refiere al énfasis en el "¿qué hace?" más que en el "¿cómo lo hace?" (Característica de caja
+                    negra). El común denominador en la evolución
+                    de los lenguajes de programación, desde los clásicos o imperativos hasta los orientados a objetos,
+                    ha sido el nivel de abstracción del que
+                    cada uno de ellos hace uso.</p>
+
+                <h3>
+                    <font color="orange">3. Herencia</font>
+                </h3>
+                <p>Los objetos heredan las propiedades y el comportamiento de todas las clases a las que pertenecen. La
+                    herencia organiza y facilita el
+                    polimorfismo y el encapsulamiento, permitiendo a los objetos ser definidos y creados como tipos
+                    especializados de objetos preexistentes.</p>
+                <p>Es una propiedad que permite que los objetos sean creados a partir de otros ya existentes, obteniendo
+                    características (métodos y atributos)
+                    similares a los ya existentes.</p>
+
+                <p><img src="img/heren.png" alt=herencia width="40%"></p>
+
+                <p>Es un mecanismo que nos permite crear clases derivadas a partir de clase base, nos permite compartir
+                    automáticamente métodos y datos entre
+                    clases, subclases y objetos. Por ejemplo: Si declaramos una clase párrafo derivada de una clase
+                    texto, todos los métodos y variables
+                    asociadas con la clase texto, son automáticamente heredados por la subclase párrafo.</p>
+
+                <h3>
+                    <font color="orange">4. Polimorfismo</font>
+                </h3>
+                <p>Comportamientos diferentes, asociados a objetos distintos, pueden compartir el mismo nombre; al
+                    llamarlos por ese nombre se utilizará
+                    el comportamiento correspondiente al objeto que se esté usando.</p>
+                <p>En programación orientada a objetos se denomina polimorfismo a la capacidad que tienen los objetos de
+                    una clase de responder al mismo mensaje
+                    o evento en función de los parámetros utilizados durante su invocación. Un objeto polimórfico es una
+                    entidad que puede contener valores de
+                    diferentes tipos durante la ejecución del programa. Dicho de otra forma, el polimorfismo consiste en
+                    conseguir que un objeto de una clase se
+                    comporte como un objeto de cualquiera de sus subclases, dependiendo de la forma de llamar a los
+                    métodos de dicha clase o subclases. Una forma de
+                    conseguir objetos polimórficos es mediante el uso de punteros a la superclase.</p>
+                <br>
+            </section>
+        </main>
+
+        <article>
+            <section>
+                <video width="100%" title="Pilares OOP" controls>
+                    <source src="mm/video.mp4">
+                </video>
+                <p style="font-size: 17px; font-weight: bold; font-style: oblique; margin: 10px 0 -10px 0;">
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <code>&lt;BettaTech&gt;</code>
+                    </a>
+                </p>
+                <h4 style="color: orange">Los 4 PRINCIPIOS de la PROGRAMACIÓN ORIENTADA A OBJETOS</h4>
+                <p>OOP, Programación Orientada a Objetos... ¿Sabes realmente en qué se basa? ¡En éste vídeo encontrarás
+                    los pilares de éste paradigma tan utilizado!</p>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section>
+                <p>Más contenido relacionado de <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                        target="_blank"
+                        style="font-size: 17px; font-weight: bold; font-style: oblique; color: steelblue; margin: 10px 0 0 0;">
+                        <code>&lt;BettaTech&gt;</code></a>:
+                    <P>Paradigmas de Programación:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/bQITKm7-63w" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Machine Learning:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/0OZVOHiOqIw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Microservicios:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/dS8o50otIfo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </section>
+        </article>
+
+        <footer>
+            <section id="footer_icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px%"></a>&nbsp;
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>&nbsp;
+                <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>&nbsp;
+                <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+            </section>
+            <br>
+            <section style="text-align: right;">
+                <p>by nacho.comabella</p>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>

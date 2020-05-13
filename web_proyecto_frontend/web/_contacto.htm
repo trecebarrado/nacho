@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Contacto OPP</title>
+    <script>
+        var pos_actual = window.pageYOffset;
+        window.onscroll = function () {
+            var pos_nueva = window.pageYOffset;
+            if (pos_actual > pos_nueva) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("aside").style.top = "0";
+            }
+            else {
+                document.getElementById("nav").style.top = "-76px";
+                document.getElementById("aside").style.top = "-76px";
+            }
+            pos_actual = pos_nueva;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grid-container">
+
+        <nav id="nav">
+            <section id="top">
+                <p><img src="img/text_logo.png" width="420px"></p>
+                <section id="logos">
+                    <a href="http://www.atento.com/es/" title="Ir a atento.com" target="_blank"><img
+                            src="img/atento.png"></a>
+                    <a href="https://www.experis.es/" title="Ir a experis.es" target="_blank"><img
+                            src="img/experis.png"></a>
+                </section>
+            </section>
+            <section id="bar">
+                <ul id="bar_menu">
+                    <li><a href="index.htm">Inicio</a></li>
+                    <li><a href="_contacto.htm">Contacto</a></li>
+                    <li><span>Menú</span>
+                        <ul id="bar_submenu">
+                            <li><a href="index.htm">Resumen</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                                    target="_blank">Vídeos</a></li>
+                            <li><a href="_ejemplos.htm">Ejemplos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <section id="nav_icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+                </section>
+            </section>
+        </nav>
+
+        <header>
+        </header>
+
+        <aside id="aside">
+            <section id="logo">
+                <a href="img/logo_tent.jpg" target="_blank"><img src="img/logo.png" width="150px"></a>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section id="menu_lat">
+                <span>CONTENIDO</span>
+                <ul>
+                    <a href="index.htm">
+                        <li>Resumen</li>
+                    </a>
+                    <a href="_pilares.htm">
+                        <li>Pilares</li>
+                    </a>
+                    <a href="_conceptos.htm">
+                        <li>Conceptos</li>
+                    </a>
+                    <a href="_tipos.htm">
+                        <li>Tipos</li>
+                    </a>
+                    <a href="_ejemplos.htm">
+                        <li>Ejemplos</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <li>Vídeos</li>
+                    </a>
+                    <a href="_contacto.htm">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+        </aside>
+
+        <main>
+            <section>
+                <p>
+                    <font face="verdana" size="3px" color="grey"><b>Paradigmas de Programación</b></font>
+                    <p>
+                        <font face="verdana" size="6px" color="steelblue"><b>Programación Orientada a Objetos (OOP)</b>
+                        </font>
+                        <br>
+                        <hr>
+                        <section id="pie">
+                            <div style="float: left;">
+                                <a href="_ejemplos.htm"><i>previo</i></a>
+                            </div>
+                        </section>
+                        <br>
+            </section>
+            <section>
+                <h2>
+                    <font color="steelblue">Formulario de contacto
+                </h2>
+                </font>
+                <form method="GET" action="">
+                    <table id="table_contact">
+                        <tr>
+                            <td><label>Nombre:</label></td>
+                            <td><input type="text" name="nombre" size="20" /><br></td>
+                            <td><label>Apellido:</label></td>
+                            <td><input type="text" name="apellido" size="20" /><br></td>
+                            <td><label>2º Apellido:</label></td>
+                            <td><input type="text" name="apellido2" size="20" /><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Móvil:</label></td>
+                            <td> <input type="tel" name="movil" maxlength="9" size="16" pattern="[6-7]{1}[0-9]{8}"
+                                    title="Debe tener 9 digitos y comenzar por 6 o 7" /></td>
+                            <td><label>e-mail:</label></td>
+                            <td colspan="3"><input type="text" name="email" size="49px" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <textarea name="comentario" cols="103" rows="10"
+                                    placeholder="Escribe aquí tu comentario."></textarea><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <div id="contact_button"><input type="submit" value="Enviar"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <br>
+                <h2>
+                    <font color="steelblue">Formulario de registro
+                </h2>
+                </font>
+                <form method="GET" action="">
+                    <table id="table_reg">
+                        <tr>
+                            <td><label>Nombre:</label></td>
+                            <td><input type="text" name="nombre" size="20" /><br></td>
+                            <td><label>Apellido:</label></td>
+                            <td><input type="text" name="apellido" size="20" /><br></td>
+                            <td><label>2º Apellido:</label></td>
+                            <td><input type="text" name="apellido2" size="20" /><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Móvil:</label></td>
+                            <td> <input type="tel" name="movil" maxlength="9" size="16" pattern="[6-7]{1}[0-9]{8}"
+                                    title="Debe tener 9 digitos y comenzar por 6 o 7" /></td>
+                            <td><label>e-mail:</label></td>
+                            <td colspan="3"><input type="text" name="email" size="49px" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>Edad:</label></td>
+                            <td><input type="number" name="edad" min="18" max="99" id="campo_edad"></td>
+                            <td><label>Género:</label></td>
+                            <td>
+                                <input type="radio" value="m" name="genero" checked /><label
+                                    class="text_radio">Hombre</label>
+                                <input type="radio" value="f" name="genero" /><label class="text_radio">Mujer</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Usuario</label></td>
+                            <td><input type="text" name="usuario" size="16" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>Password:</label></td>
+                            <td><input type="password" name="password" size="16" /><br></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="6">
+                                <div id="contact_button"><input type="submit" value="Enviar"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <br>
+            </section>
+        </main>
+
+        <article>
+            <section>
+                <video width="100%" title="Pilares OOP" controls>
+                    <source src="mm/video.mp4">
+                </video>
+                <p style="font-size: 17px; font-weight: bold; font-style: oblique; margin: 10px 0 -10px 0;">
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <code>&lt;BettaTech&gt;</code>
+                    </a>
+                </p>
+                <h4 style="color: orange">Los 4 PRINCIPIOS de la PROGRAMACIÓN ORIENTADA A OBJETOS</h4>
+                <p>OOP, Programación Orientada a Objetos... ¿Sabes realmente en qué se basa? ¡En éste vídeo encontrarás
+                    los pilares de éste paradigma tan utilizado!</p>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section>
+                <p>Más contenido relacionado de <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                        target="_blank"
+                        style="font-size: 17px; font-weight: bold; font-style: oblique; color: steelblue; margin: 10px 0 0 0;">
+                        <code>&lt;BettaTech&gt;</code></a>:
+                    <P>Paradigmas de Programación:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/bQITKm7-63w" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Machine Learning:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/0OZVOHiOqIw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Microservicios:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/dS8o50otIfo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </section>
+        </article>
+
+        <footer>
+            <section id="footer_icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px%"></a>&nbsp;
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>&nbsp;
+                <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>&nbsp;
+                <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+            </section>
+            <br>
+            <section style="text-align: right;">
+                <p>by nacho.comabella</p>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>

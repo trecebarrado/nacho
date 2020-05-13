@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ejemplos OPP</title>
+    <script>
+        var pos_actual = window.pageYOffset;
+        window.onscroll = function () {
+            var pos_nueva = window.pageYOffset;
+            if (pos_actual > pos_nueva) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("aside").style.top = "0";
+            }
+            else {
+                document.getElementById("nav").style.top = "-76px";
+                document.getElementById("aside").style.top = "-76px";
+            }
+            pos_actual = pos_nueva;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grid-container">
+
+        <nav id="nav">
+            <section id="top">
+                <p><img src="img/text_logo.png" width="420px"></p>
+                <section id="logos">
+                    <a href="http://www.atento.com/es/" title="Ir a atento.com" target="_blank"><img
+                            src="img/atento.png"></a>
+                    <a href="https://www.experis.es/" title="Ir a experis.es" target="_blank"><img
+                            src="img/experis.png"></a>
+                </section>
+            </section>
+            <section id="bar">
+                <ul id="bar_menu">
+                    <li><a href="index.htm">Inicio</a></li>
+                    <li><a href="_contacto.htm">Contacto</a></li>
+                    <li><span>Menú</span>
+                        <ul id="bar_submenu">
+                            <li><a href="index.htm">Resumen</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                                    target="_blank">Vídeos</a></li>
+                            <li><a href="_ejemplos.htm">Ejemplos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <section id="nav_icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+                </section>
+            </section>
+        </nav>
+
+        <header>
+        </header>
+
+        <aside id="aside">
+            <section id="logo">
+                <a href="img/logo_tent.jpg" target="_blank"><img src="img/logo.png" width="150px"></a>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section id="menu_lat">
+                <span>CONTENIDO</span>
+                <ul>
+                    <a href="index.htm">
+                        <li>Resumen</li>
+                    </a>
+                    <a href="_pilares.htm">
+                        <li>Pilares</li>
+                    </a>
+                    <a href="_conceptos.htm">
+                        <li>Conceptos</li>
+                    </a>
+                    <a href="_tipos.htm">
+                        <li>Tipos</li>
+                    </a>
+                    <a href="_ejemplos.htm">
+                        <li>Ejemplos</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <li>Vídeos</li>
+                    </a>
+                    <a href="_contacto.htm">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+        </aside>
+
+        <main>
+            <section>
+                <p>
+                    <font face="verdana" size="3px" color="grey"><b>Paradigmas de Programación</b></font>
+                    <p>
+                        <font face="verdana" size="6px" color="steelblue"><b>Programación Orientada a Objetos (OOP)</b>
+                        </font>
+                        <br>
+                        <hr>
+
+                        <section id="pie">
+                            <div style="float: left;">
+                                <a href="_tipos.htm"><i>previo</i></a>
+                            </div>
+                            <div style="float: right;">
+                                <a href="_contacto.htm"><i>siguiente</i></a>
+                            </div>
+                        </section>
+                        <br>
+            </section>
+            <section>
+                <h2>
+                    <font color="steelblue">Algunos ejemplos de Lenguajes orientados a objetos
+                </h2>
+                </font>
+                <p>Simula (1967) es aceptado como el primer lenguaje que posee las características principales de un
+                    lenguaje orientado a
+                    objetos. Fue creado para hacer programas de simulación, en donde los "objetos" son la representación
+                    de la información más
+                    importante.</p>
+
+                <p>Smalltalk (1972 a 1980) es posiblemente el ejemplo canónico, y con el que gran parte de la teoría de
+                    la programación
+                    orientada a objetos se ha desarrollado.</p>
+
+                <p>Entre los lenguajes OOP que se utilizan actualmente, destacan los siguientes:</p>
+                <br>
+                <table id="table_example">
+                    <tr id="table_icons">
+                        <td><a href="https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n)" target="_blank"><img src="img/java.png" alt="java"
+                                    width="40%" title="Ir a entrada Java wikipedia"></a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/C%2B%2B" target="_blank"><img src="img/c++.png"
+                                    alt="c++" width="40%" title="Ir a entrada C++ wikipedia"></td>
+                        <td><a href="https://www.python.org" target="_blank"><img src="img/python.png" alt="python"
+                                    width="40%" title="Ir a python.org"></td>
+                    </tr>
+                    <tr id="table_text">
+                        <td><a href="https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n)" target="_blank" 
+                                    title="Ir a entrada Java wikipedia">Java</a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/C%2B%2B" target="_blank" title="Ir a entrada C++ wikipedia">C++</a></td>
+                        <td><a href="https://www.python.org" target="_blank" title="Ir a python.org">Python</a></td>
+                    </tr>
+                    <tr id="table_icons">
+                        <td><a href="https://www.apple.com/es/swift" target="_blank"><img src="img/swift.png"
+                                    alt="swift" width="40%" title="Ir a apple.com/swift"></a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/JavaScript" target="_blank"><img src="img/js.jpg"
+                                    alt="javascript" width="40%" title="Ir a entrada JavaScript wikipedia"></a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/Visual_Basic" target="_blank"><img src="img/vb.png"
+                                    alt="visual basic" width="40%" title="Ir a entrada Visual Basic wikipedia"></a></td>
+                    </tr>
+                    <tr id="table_text">
+                        <td><a href="https://www.apple.com/es/swift" target="_blank" title="Ir a apple.com/swift">Swift</a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/JavaScript" target="_blank" title="Ir a entrada JavaScript wikipedia">JavaScript</a></td>
+                        <td><a href="https://es.wikipedia.org/wiki/Visual_Basic" target="_blank" title="Ir a entrada Visual Basic wikipedia">Visual Basic</a></td>
+                    </tr>
+                </table>
+
+                <p>Algunos de estos lenguajes de programación no son puramente orientados a objetos, sino que son
+                    híbridos que combinan la
+                    POO con otros paradigmas.</p>
+
+                <p>Al igual que C++, otros lenguajes, como OOCOBOL, OOLisp, OOProlog y Object REXX, han sido creados
+                    añadiendo extensiones
+                    orientadas a objetos a un lenguaje de programación clásico.</p>
+
+                <p>Un nuevo paso en la abstracción de paradigmas de programación es la Programación Orientada a Aspectos
+                    (POA). Aunque es
+                    todavía una metodología en estado de maduración, cada vez atrae a más investigadores e incluso
+                    proyectos comerciales
+                    en todo el mundo.</p>
+            </section>
+        </main>
+
+        <article>
+            <section>
+                <video width="100%" title="Pilares OOP" controls>
+                    <source src="mm/video.mp4">
+                </video>
+                <p style="font-size: 17px; font-weight: bold; font-style: oblique; margin: 10px 0 -10px 0;">
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <code>&lt;BettaTech&gt;</code>
+                    </a>
+                </p>
+                <h4 style="color: orange">Los 4 PRINCIPIOS de la PROGRAMACIÓN ORIENTADA A OBJETOS</h4>
+                <p>OOP, Programación Orientada a Objetos... ¿Sabes realmente en qué se basa? ¡En éste vídeo encontrarás
+                    los pilares de éste paradigma tan utilizado!</p>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section>
+                <p>Más contenido relacionado de <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                        target="_blank"
+                        style="font-size: 17px; font-weight: bold; font-style: oblique; color: steelblue; margin: 10px 0 0 0;">
+                        <code>&lt;BettaTech&gt;</code></a>:
+                    <P>Paradigmas de Programación:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/bQITKm7-63w" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Machine Learning:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/0OZVOHiOqIw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Microservicios:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/dS8o50otIfo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </section>
+        </article>
+
+        <footer>
+            <section id="footer_icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px%"></a>&nbsp;
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>&nbsp;
+                <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>&nbsp;
+                <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+            </section>
+            <br>
+            <section style="text-align: right;">
+                <p>by nacho.comabella</p>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>

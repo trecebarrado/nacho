@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Resumen OPP</title>
+    <script>
+        var pos_actual = window.pageYOffset;
+        window.onscroll = function () {
+            var pos_nueva = window.pageYOffset;
+            if (pos_actual > pos_nueva) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("aside").style.top = "0";
+            }
+            else {
+                document.getElementById("nav").style.top = "-76px";
+                document.getElementById("aside").style.top = "-76px";
+            }
+            pos_actual = pos_nueva;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="grid-container">
+
+        <nav id="nav">
+            <section id="top">
+                <p><img src="img/text_logo.png" width="420px"></p>
+                <section id="logos">
+                    <a href="http://www.atento.com/es/" title="Ir a atento.com" target="_blank"><img
+                            src="img/atento.png"></a>
+                    <a href="https://www.experis.es/" title="Ir a experis.es" target="_blank"><img
+                            src="img/experis.png"></a>
+                </section>
+            </section>
+            <section id="bar">
+                <ul id="bar_menu">
+                    <li><a href="index.htm">Inicio</a></li>
+                    <li><a href="_contacto.htm">Contacto</a></li>
+                    <li><span>Menú</span>
+                        <ul id="bar_submenu">
+                            <li><a href="index.htm">Resumen</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                                    target="_blank">Vídeos</a></li>
+                            <li><a href="_ejemplos.htm">Ejemplos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <section id="nav_icons">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+                </section>
+            </section>
+        </nav>
+
+        <header>
+        </header>
+
+        <aside id="aside">
+            <section id="logo">
+                <a href="img/logo_tent.jpg" target="_blank"><img src="img/logo.png" width="150px"></a>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section id="menu_lat">
+                <span>CONTENIDO</span>
+                <ul>
+                    <a href="index.htm">
+                        <li>Resumen</li>
+                    </a>
+                    <a href="_pilares.htm">
+                        <li>Pilares</li>
+                    </a>
+                    <a href="_conceptos.htm">
+                        <li>Conceptos</li>
+                    </a>
+                    <a href="_tipos.htm">
+                        <li>Tipos</li>
+                    </a>
+                    <a href="_ejemplos.htm">
+                        <li>Ejemplos</li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <li>Vídeos</li>
+                    </a>
+                    <a href="_contacto.htm">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+        </aside>
+
+        <main>
+            <section>
+                <p>
+                    <font face="verdana" size="3px" color="grey"><b>Paradigmas de Programación</b></font>
+                    <p>
+                        <font face="verdana" size="6px" color="steelblue"><b>Programación Orientada a Objetos (OOP)</b>
+                        </font>
+                        <br>
+                        <hr>
+                        <section id="pie">
+                            <div style="float: right;">
+                                <a href="_pilares.htm"><i>siguiente</i></a>
+                            </div>
+                        </section>
+                        <br>
+            </section>
+            <h2>
+                <font color="steelblue">Resumen
+            </h2>
+            </font>
+            <section>
+                <p>La OOP es un paradigma surgido en los años 1970, que utiliza objetos como elementos fundamentales en
+                    la construcción de la solución.
+                    Un objeto es una abstracción de algún hecho o ente del mundo real, con atributos que representan sus
+                    características o propiedades, y
+                    métodos que emulan su comportamiento o actividad. Todas las propiedades y métodos comunes a los
+                    objetos se encapsulan o agrupan en clases.
+                    Una clase es una plantilla, un prototipo para crear objetos; en general, se dice que cada objeto es
+                    una instancia o ejemplar de una clase.</p>
+
+                <img src="img/oop.png" id="images" width="50%" title="OOP">
+
+                <p>En el paradigma OOP, los programas se modelan en torno a objetos que aglutinan toda la funcionalidad
+                    relacionada con ellos. De este modo
+                    en lugar de crear una serie de funciones sin conexión alguna entre ellas, en OOP se crean clases,
+                    que representan entidades que quieres
+                    manejar en tu programa. </p>
+
+                <p>La OOP gira más en torno a los datos que en torno a la lógica, que se delega a un segundo plano, ya
+                    que forma parte de dichos datos
+                    como veremos enseguida.</p><br>
+
+                <h3>
+                    <font color="cadetblue">Clases, objetos e instancias</font>
+                </h3>
+
+                <p>El primer concepto y más importante de la OOP es la distinción entre clase y objeto.</p>
+
+                <p>Una clase es una plantilla. Define de manera genérica cómo van a ser los objetos de determinado tipo.
+                </p>
+
+                <blockquote>
+                    <p class="bq"><cite>
+                            Por ejemplo, en un juego, una clase para representar a personas puede llamarse Persona y
+                            tener una serie de atributos como Nombre,
+                            Apellidos o Edad (que normalmente son propiedades), y una serie de comportamientos que
+                            pueden tener, como Hablar(), Caminar() o Comer()
+                            y que se implementan como métodos de la clase (funciones).
+                        </cite></p>
+                </blockquote>
+
+                <p>Una clase por sí sola no sirve de nada, pues no es más que un concepto, sin entidad real. Para poder
+                    utilizar una clase en un programa lo
+                    que hay que hacer es instanciarla. Instanciar una clase consiste en crear un nuevo objeto de la
+                    misma.</p>
+
+                <blockquote>
+                    <p class="bq"><cite>
+                            Por ejemplo, un objeto puede ser una persona que se llama Cristina López, de 37 años y que
+                            en nuestro programa podría hablar, caminar o comer,
+                            que son los comportamientos que están definidos en la clase.
+                        </cite></p>
+                </blockquote>
+
+                <p>El concepto es simple, existe un molde llamado clase donde se especifican los campos y métodos que
+                    tendrán nuestros objetos. Cada vez que
+                    necesitamos un objeto creamos una instancia (o copia del objeto) usando la clase como molde.</p>
+
+                <p>Como decíamos, una clase es una especie de "plantilla" en la que se definen los atributos y métodos
+                    predeterminados de un tipo de objeto. Esta plantilla
+                    se crea para poder crear objetos fácilmente. Al método de crear nuevos objetos mediante la lectura y
+                    recuperación de los atributos y métodos
+                    de una clase se le conoce como instanciación.</p>
+                <br>
+                &nbsp;&nbsp;<cite>Una imagen vale más que mil palabras:</cite><br><br>
+
+                <img src="img/clase.png" id="images" alt=clase width="55%" title="ejemplo Clase">
+
+                <p>Para poder manejar de manera eficiente las clases y los objetos que se generan con la Programación
+                    Orientada a Objetos son necesarios
+                    algunos principios que nos ayudarán a reducir la complejidad, ser más eficientes y evitar problemas.
+                    Son los <b><a href="_pilares.htm" style="color: steelblue;">
+                            4 pilares de la OOP</a></b>: Encapsulación - Abstracción - Herencia - Polimorfismo.</p>
+            </section>
+        </main>
+
+        <article>
+            <section>
+                <video width="100%" title="Pilares OOP" controls>
+                    <source src="mm/video.mp4">
+                </video>
+                <p style="font-size: 17px; font-weight: bold; font-style: oblique; margin: 10px 0 -10px 0;">
+                    <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg" target="_blank">
+                        <code>&lt;BettaTech&gt;</code>
+                    </a>
+                </p>
+                <h4 style="color: orange">Los 4 PRINCIPIOS de la PROGRAMACIÓN ORIENTADA A OBJETOS</h4>
+                <p>OOP, Programación Orientada a Objetos... ¿Sabes realmente en qué se basa? ¡En éste vídeo encontrarás
+                    los pilares de éste paradigma tan utilizado!</p>
+            </section>
+            <hr style="border: 0.5px solid lightgrey;">
+            <section>
+                <p>Más contenido relacionado de <a href="https://www.youtube.com/channel/UCSf6S_PAhXsqGMTPDiKgdRg"
+                        target="_blank"
+                        style="font-size: 17px; font-weight: bold; font-style: oblique; color: steelblue; margin: 10px 0 0 0;">
+                        <code>&lt;BettaTech&gt;</code></a>:
+                    <P>Paradigmas de Programación:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/bQITKm7-63w" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Machine Learning:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/0OZVOHiOqIw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>Microservicios:</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/dS8o50otIfo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </section>
+        </article>
+
+        <footer>
+            <section id="footer_icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" width="17px%"></a>&nbsp;
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" width="25px"></a>&nbsp;
+                <a href="https://www.linkedin.com/" target="_blank"><img src="img/linkedin.png" width="25px"></a>&nbsp;
+                <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" width="25px"></a>
+            </section>
+            <br>
+            <section style="text-align: right;">
+                <p>by nacho.comabella</p>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>
