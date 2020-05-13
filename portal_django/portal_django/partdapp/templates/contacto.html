@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Particularia - Contacto{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<div class="row">
+	<div class="col s12 m6" style="padding: 10px 20px 20px 20px;">
+	    <br class="hide-on-small-only">
+		<div style="text-align:center;">
+			<h5>Chat Particularia</h5>
+		</div>
+		<div>
+			<label for="listado_mensajes" style="font-size: 15px">Chat</label>
+			<textarea id="listado_mensajes" style="height: 200px;" readonly></textarea>
+		</div>
+		<div class="input-field">
+			<input id="nom" type="text" name="nom" maxlength="50" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{0,50}$" required/>
+			<label for="nom">Nombre</label>
+		</div>
+		<div>
+			<label for="mensaje" style="font-size: 15px">Mensaje</label>
+			<textarea id="mensaje" name="mensaje"></textarea>
+		</div><br>
+		<div>
+			<button class="waves-effect waves-light btn" type="submit" id="boton_enviar_mensaje" style="width: 150px; margin-left:0;">ENVIAR</button>
+		</div>
+	</div>
+
+	<div class="col s12 m6" style="padding: 30px;">
+		<div style="text-align:center;">
+			<h5>Formulario de contacto</h5>
+		</div>
+		<br class="hide-on-small-only">
+		<form action="form-contacto">
+			<div class="input-field">
+				<input id="nombre" type="text" name="nombre" maxlength="50" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{0,50}$" required/>
+				<label for="nombre">Tu nombre</label>
+			</div>
+			<div class="input-field">
+				<textarea id="desc" class="materialize-textarea" name="descripcion" maxlength="500" required></textarea>
+				<label for="desc">Mensaje</label>
+			</div>
+			<div class="input-field">
+				<input id="mail" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+				<label for="mail">E-mail de contacto</label>
+			</div>
+			<div class="input-field">
+				<input id="tfno" type="text" name="telefono" maxlength="9" pattern="[6-7]{1}[0-9]{8}" required/>
+				<label for="tfno">Teléfono de contacto</label>
+			</div>
+			<br class="hide-on-small-only">
+			<div>
+				<button class="waves-effect waves-light btn" type="submit" style="width: 150px; margin-left:0;">ENVIAR</button>
+			</div>
+		</form>
+	</div>
+</div>
+<br class="hide-on-med-and-up">
+<div class="row">
+	<div style="text-align: right; padding-right: 20px;">
+		<a class="waves-effect waves-light btn" href="listado">VOLVER</a>
+	</div>
+</div>
+
+</div>
+<br><br>
+<div id="info" style="display:none;"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="../static/js/jquery.js"></script>
+
+<script>
+$("#boton_enviar_mensaje").click(function(){
+	nom = $("#nom").val()
+	mensaje =$("#mensaje").val()
+	$.ajax({
+		url : "registrar-mensaje" ,
+		data : { n : nom , m : mensaje },
+        success: function(res){
+        	if ( res != "ok" ){
+        		alert("error en envio de mensaje: " + res)
+        	}
+        }
+	});
+});
+
+function refrescar(){
+    var textarea = document.getElementById('listado_mensajes');
+	ahora = new Date();
+	$("#info").html(ahora)
+	$.getJSON("obtener-mensajes", function(mensajes){
+		texto = ""
+		for(i in mensajes){
+			texto += mensajes[i][0] + ": " + mensajes[i][1] + "\n";
+		}
+	    $("#listado_mensajes").html(texto);
+	});
+	listado_mensajes.scrollTop = listado_mensajes.scrollHeight;
+}
+
+setInterval(refrescar,2000);
+</script>
+{% endblock %}

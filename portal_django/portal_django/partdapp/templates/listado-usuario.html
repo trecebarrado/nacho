@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Particularia - Anuncios{% endblock %}
+
+{% block content %}
+<body>
+<!-- <body onload="ver({{var_divparam}}, {{var_noresult}})">
+
+<div class="hide-on-small-only">
+	<div class="carousel carousel-slider">
+		<a class="carousel-item"><img src="../static/images/slide1a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide2a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide3a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide4a.jpg"></a>
+	</div>
+</div> -->
+
+<div class="container">
+	<br class="hide-on-small-only">
+	<br class="hide-on-small-only">
+
+	    {% if anuncios %}
+    	<div class="hide-on-small-only">
+			<h4 style="margin-top: 5px">Mis anuncios</h4>
+		</div>
+		<div class="hide-on-med-and-up" style="text-align:center;">
+			<h4 style="margin-top: 10px">Mis anuncios</h4>
+		</div>
+		<br>
+		{% for a in anuncios %}
+	  	<div class="hide-on-small-only">
+			<div class="card-panel grey lighten-5 z-depth-1">
+				<div class="row valign-wrapper" style="margin-bottom: 5px;">
+					<div class="col m1" style="padding: 0;">
+						<img class="circle materialboxed" src="../static/media/{{a.foto}}" width="70px" height="70px">
+					</div>
+					<div class="col m11" style="padding-left: 20px; padding-right: 0px;">
+						<span class="black-text">
+							<span id="camposcard">Materia:</span> &nbsp;{{a.categoria.materia}} <br>
+							<span id="camposcard">Detalles:</span> &nbsp;<cite>{{a.descripcion}}</cite> <br>
+							<span id="camposcard">Imparte:</span> &nbsp;{{a.nombre}}  <br>
+							<span id="camposcard">Horario clases:</span> &nbsp;{{a.horario}} &nbsp; &nbsp; <span id="camposcard">Precio/hora:</span>&nbsp;
+							{% if a.precio == 0.00 %}
+							No indicado<br>
+							{% else %}
+							{{a.precio}}€<br>
+							{% endif %}
+							{% if a.mail == "SI" %}<span id="camposcard">E-mail de contacto:</span> &nbsp;<a href="mailto:{{a.email}}" target="_blank">{{a.email}}</a> &nbsp; {% endif %}
+							{% if a.tfno == "SI" %}<span id="camposcard">Teléfono de contacto:</span> &nbsp;{{a.telefono}}<br>{% endif %}
+						</span>
+						<div>
+							<a class="waves-effect waves-light btn" href="editar-anuncio?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;">EDITAR</a>
+							<a class="waves-effect waves-light btn" href="borrar-anuncio?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;" onclick="return confirm('¿Seguro que deseas borrar?')">BORRAR</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  	<div class="hide-on-med-and-up">
+	  		<div class="card-panel grey lighten-5 z-depth-1" style="padding-left: 12px;">
+				<div class="row valign-wrapper" style="margin-bottom: 5px; margin-left: 5px;">
+		  			<div class="col s2" style="padding: 0;">
+						<img class="circle materialboxed" src="../static/media/{{a.foto}}" width="60px" height="60px;">
+		  			</div>
+		  			<div class="col s10" style="margin-left: 15px;">
+						<span class="black-text">
+							<span id="camposcard">Materia:</span> &nbsp;{{a.categoria.materia}}  <br>
+							<span id="camposcard">Detalles:</span> &nbsp;<cite>{{a.descripcion}}</cite> <br>
+							<span id="camposcard">Imparte:</span> &nbsp;{{a.nombre}}  <br>
+							<span id="camposcard">Horario clases:</span> &nbsp;{{a.horario}} <br>
+							<span id="camposcard">Precio/hora:</span>&nbsp;
+							{% if a.precio == 0.00 %}
+							No indicado<br>
+							{% else %}
+							{{a.precio}}€<br>
+							{% endif %}
+							{% if a.mail == "SI" %}<span id="camposcard">E-mail de contacto:</span> &nbsp; <a href="mailto:{{a.email}}" target="_blank">{{a.email}}</a><br>{% endif %}
+							{% if a.tfno == "SI" %}<span id="camposcard">Teléfono de contacto:</span> &nbsp;{{a.telefono}}<br>{% endif %}
+						</span>
+						<a class="waves-effect waves-light btn" href="editar-anuncio?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;">EDITAR</a>
+						<a class="waves-effect waves-light btn" href="borrar-anuncio?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;" onclick="return confirm('¿Seguro que deseas borrar?')">BORRAR</a>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<br>
+		{% endfor %}
+		<div>
+            <a class="waves-effect waves-light btn-large" href="registrar-anuncio" style="margin-left: 0; margin-top: 15px;">Publicar nuevo anuncio</a>
+        </div>
+        <br>
+		{% else %}
+		<div style="text-align:center;">
+			<br><br><br><br>
+				<h4 style="margin-top: 10px">Aún no has registrado ningún anuncio...</h4>
+			</div>
+			<br><br>
+			<div style="text-align: center";>
+			<a class="waves-effect waves-light btn-large" style="width:300px;" href="registrar-anuncio">Anúnciate</a>
+			<div class="hide-on-med-and-up"><p></p></div>
+			<a class="waves-effect waves-light btn-large" style="width:300px;" href="listado">Busca clases</a>
+			<br>
+		</div>
+		<br><br><br><br>
+		{% endif %}
+
+<!-- <div style="text-align: right;">
+<a class="btn" href="#top">
+<i class="material-icons center">keyboard_arrow_up</i>
+</a>
+</div> -->
+
+</div>
+<br><br>
+
+</body>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var options = {
+      indicators: true
+  };
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems, options);
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+
+<script>
+function ver(var_divparam, var_noresult) {
+	v = {{var_divparam}};
+	n = {{var_noresult}}
+	var x = document.getElementById("divparam");
+	if (v == 1) {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+	var y = document.getElementById("noresult");
+	if (n == 1) {
+		y.style.display = "block";
+	} else {
+		y.style.display = "none";
+	}
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems);
+  });
+</script>
+{% endblock %}

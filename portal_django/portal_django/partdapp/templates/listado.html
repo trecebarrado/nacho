@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}Particularia - Anuncios{% endblock %}
+
+{% block content %}
+<body onload="buscarValue()">
+
+<div class="hide-on-small-only">
+	<div class="carousel carousel-slider">
+		<a class="carousel-item"><img src="../static/images/slide1a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide2a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide3a.jpg"></a>
+		<a class="carousel-item"><img src="../static/images/slide4a.jpg"></a>
+	</div>
+</div>
+
+<div class="container">
+
+	<!--<div class="hide-on-small-only">-->
+	<!--	<h3 style="margin-top: 10px">Anuncios</h3>-->
+	<!--</div>-->
+	<!--<div class="hide-on-med-and-up" style="text-align:center;">-->
+	<!--	<h4 style="margin-top: 10px">Anuncios</h4>-->
+	<!--</div>-->
+	<!--<br>-->
+<!-- <br class = "hide-on-small-only"> -->
+
+    <div>
+    	<div class="row" style="text-align: center;">
+	    	<form action="listado">
+
+	    		<div class="input-field col s12 m4">
+				    <input id="descripcion" type="text" name="descripcion" value="{{descripcion_buscador}}"/>
+				    <label for="descripcion">Buscar término en <span style="font-style: italic;">Detalles</span></label>
+				</div>
+				<div class="input-field col s12 m4">
+					<select name="materia">
+					    <option value="ninguna">Filtrar anuncios por Materia</option>
+					    {% for c in categorias %}
+					    <option value="{{c.id}}"
+					    {% if materia_buscador == c.id %}
+					     selected
+					    {% endif %}
+					    >{{c.materia}}</option>
+					    {% endfor %}
+					</select>
+				</div>
+				<div class="input-field col s12 m4">
+					<select name="horario">
+						<option value="ninguno"
+						{% if horario_buscador == "" %}
+						 selected
+						{% endif %}
+						>Filtrar anuncios por Horario</option>
+						<option value="Mañanas"
+						{% if horario_buscador == "Mañanas" %}
+						 selected
+						{% endif %}
+						>Mañanas</option>
+						<option value="Tardes"
+						{% if horario_buscador == "Tardes" %}
+						 selected
+						{% endif %}
+						>Tardes</option>
+						<option value="Mañana y tarde"
+						{% if horario_buscador == "Mañana y tarde" %}
+					 	 selected
+						{% endif %}
+						>Mañana y tarde</option>
+					</select>
+				</div>
+				<div style="text-align: right; padding-right: 12px;">
+				    <!--<input type="submit" class="waves-effect waves-light btn" style="margin-left: 0;" value="BUSCAR"/>-->
+				    <button class="waves-effect waves-light btn" style="margin-left: 0;" type="submit">Buscar</button>
+				    <a class="waves-effect waves-light btn" href="listado" style="margin: 0;">Restaurar</a>
+			    </div>
+			</form>
+		</div>
+    </div>
+	<br>
+	<br class="hide-on-med-and-up">
+	{% if total_resultados == 0 %}
+	<!--<div style="font-style: italic; margin-left: 10px;">Sin resultados</div>-->
+	<div>
+		<div style="background-color: whitesmoke; border-radius: 4px;">
+			<h6 style="margin: 0; padding: 50px;">No hay resultados.</h6>
+		</div>
+		<br class = "hide-on-small-only">
+	</div>
+    <br class = "hide-on-med-and-up">
+    <br>
+	{% else %}
+    <div style="font-style: italic;">
+       Anuncios <span style="color:#4caf50;"><b>{{desde}}-{{hasta}}</b></span> de un total de <span style="color:#4caf50;"><b>{{total_resultados}}</b></span>
+    </div>
+    {% endif %}
+    <br>
+
+	<div>
+		{% for a in anuncios %}
+		<div style="display: none;">{{a.id}}</div>
+	  	<div class="hide-on-small-only">
+			<div class="card-panel grey lighten-5 z-depth-1">
+				<div class="row valign-wrapper" style="margin-bottom: 5px;">
+					<div class="col m1" style="padding: 0;">
+						<img class="circle materialboxed" src="../static/media/{{a.foto}}" width="70px" height="70px">
+					</div>
+					<div class="col m11" style="padding-left: 20px; padding-right: 0px;">
+						<span class="black-text">
+							<span id="camposcard">Materia:</span> &nbsp;{{a.categoria.materia}} <br>
+							<span id="camposcard">Detalles:</span> &nbsp;<cite>{{a.descripcion}}</cite> <br>
+							<span id="camposcard">Imparte:</span> &nbsp;{{a.nombre}}  <br>
+							<span id="camposcard">Horario clases:</span> &nbsp;{{a.horario}} &nbsp; &nbsp; <span id="camposcard">Precio/hora:</span>&nbsp;
+							{% if a.precio == 0.00 %}
+							No indicado<br>
+							{% else %}
+							{{a.precio}}€<br>
+							{% endif %}
+							{% if a.mail == "SI" %}<span id="camposcard">E-mail de contacto:</span> &nbsp;<a href="mailto:{{a.email}}" target="_blank">{{a.email}}</a> &nbsp; {% endif %}
+							{% if a.tfno == "SI" %}<span id="camposcard">Teléfono de contacto:</span> &nbsp;{{a.telefono}}<br>{% endif %}
+						</span>
+						<div>
+							<a class="waves-effect waves-light btn" href="contactar?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;">CONTACTAR</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  	<div class="hide-on-med-and-up">
+	  		<div class="card-panel grey lighten-5 z-depth-1" style="padding-left: 12px;">
+				<div class="row valign-wrapper" style="margin-bottom: 5px; margin-left: 5px;">
+		  			<div class="col s2" style="padding: 0;">
+						<img class="circle materialboxed" src="../static/media/{{a.foto}}" width="60px" height="60px;">
+		  			</div>
+		  			<div class="col s10" style="margin-left: 15px;">
+						<span class="black-text">
+							<span id="camposcard">Materia:</span> &nbsp;{{a.categoria.materia}}  <br>
+							<span id="camposcard">Detalles:</span> &nbsp;<cite>{{a.descripcion}}</cite> <br>
+							<span id="camposcard">Imparte:</span> &nbsp;{{a.nombre}}  <br>
+							<span id="camposcard">Horario clases:</span> &nbsp;{{a.horario}} <br>
+							<span id="camposcard">Precio/hora:</span>&nbsp;
+							{% if a.precio == 0.00 %}
+							No indicado<br>
+							{% else %}
+							{{a.precio}}€<br>
+							{% endif %}
+							{% if a.mail == "SI" %}<span id="camposcard">E-mail de contacto:</span> &nbsp; <a href="mailto:{{a.email}}" target="_blank">{{a.email}}</a><br>{% endif %}
+							{% if a.tfno == "SI" %}<span id="camposcard">Teléfono de contacto:</span> &nbsp;{{a.telefono}}<br>{% endif %}
+						</span>
+						<a class="waves-effect waves-light btn" href="contactar?id={{a.id}}" style="margin-left: 0px; margin-top: 10px;">CONTACTAR</a>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<br>
+		{% endfor %}
+	</div>
+
+<div>
+	{% if anterior >= 0 %}
+	<a class="waves-effect waves-light btn-small" href="listado?comienzo={{anterior}}" style="margin-left: 0;">PAG. ANTERIOR</a>
+	{% endif %}
+	{% if siguiente < total_resultados %}
+	<a class="waves-effect waves-light btn-small" href="listado?comienzo={{siguiente}}" style="margin-left: 0;">PAG. SIGUIENTE</a>
+	{% endif %}
+	{% if anterior >= 0 and siguiente >= total_resultados %}
+	<a class="waves-effect waves-light btn-small" href="listado" style="margin-left: 0;">INICIO</a>
+	{% endif %}
+</div>
+<br>
+<div style="text-align: right;">
+<a class="btn" href="#top">
+<i class="material-icons center">keyboard_arrow_up</i>
+</a>
+</div>
+
+</div>
+<br><br>
+
+</body>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var options = {
+      indicators: true
+  };
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems, options);
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+
+<script>
+function ver(var_divparam, var_noresult) {
+	v = {{var_divparam}};
+	n = {{var_noresult}}
+	var x = document.getElementById("divparam");
+	if (v == 1) {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+	var y = document.getElementById("noresult");
+	if (n == 1) {
+		y.style.display = "block";
+	} else {
+		y.style.display = "none";
+	}
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems);
+  });
+</script>
+
+<script>
+function buscarValue() {
+  document.getElementById("descripcion").focus();
+}
+</script>
+{% endblock %}

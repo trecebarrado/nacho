@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Particularia - Login / Alta{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<br class="hide-on-small-only">
+<div style="text-align: center; background-color: whitesmoke; padding:10px; margin:10px 25px; border-radius:6px;">
+	<h6 style="margin:10px;">Para publicar o ver tus anuncios, identifícate o date de alta.</h6>
+</div>
+<div class="row">
+
+	<div class="col s12 m6" style="padding:10px 30px 30px 30px;">
+		<h5 style="padding-bottom: 7px;">Identificación Usuario</h5>
+		 <!-- <br class = "hide-on-small-only"> -->
+        <form method="post" action="login-usuario"> {% csrf_token %}
+              <div class="input-field">
+                  <input id="user" type="text" name="email"/>
+                  <label for="user">E-mail</label>
+              </div>
+              <div class="input-field">
+                  <input id="psswrd" type="password" name="clave" maxlength="10" pattern=".{4,10}" required title="De 4 a 10 caracteres"/>
+                  <label for="psswrd">Contraseña</label>
+              </div><br>
+	         <div>
+	             <button class="waves-effect waves-light btn" type="submit" style="margin-left: -1px;">ACCEDER</button>
+	         </div>
+         </form>
+         <br>
+         <span style="color:red">{{error_login}}</span>
+	</div>
+
+	<div class="col s12 m6" style="padding:10px 30px 30px 30px;">
+
+		<h5 style="padding-bottom: 7px;">Alta nuevo Usuario</h5>
+		<!-- <br class = "hide-on-small-only"> -->
+        <form method="post" action="alta-usuario"> {% csrf_token %}
+                <div class="input-field">
+                    <input id="nombre" type="text" name="nom" maxlength="20" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{0,20}$" required/>
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="input-field">
+                    <input id="apellidos" type="text" name="apell" maxlength="20" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{0,20}$" required/>
+                    <label for="apellidos">Apellidos</label>
+                </div>
+                <div class="input-field">
+                    <input id="email" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+                    <label for="email">E-mail</label>
+                </div>
+	            <div class="input-field">
+	                <input id="password" type="password" name="clave" maxlength="10" pattern=".{4,10}" required title="De 4 a 10 caracteres" required/>
+	                <label for="password" style="left: 0px;">Contraseña</label>
+	            </div>
+            <br>
+            <div>
+                <button class="waves-effect waves-light btn" type="submit" style="margin-left: -1px;">ENVIAR</button>
+            </div>
+        </form>
+        <br>
+         <span style="color:red">{{error_email}}</span>
+	</div>
+
+</div>
+<div class="row">
+	<br class = "hide-on-med-and-up">
+	<br class = "hide-on-med-and-up">
+	<div style="text-align: right; padding-right: 20px;">
+		<a class="waves-effect waves-light btn" href="listado">IR AL LISTADO DE ANUNCIOS</a>
+	</div>
+</div>
+</div>
+<br><br><br class="hide-on-small-only">
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+});
+</script>
+
+<script>
+    function checks() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+    if (checkedOne) {
+    		console.log("ok");
+            } else {
+				M.toast({html: 'Al menos un horario debe estar seleccionado.'})
+                document.getElementById("c1").checked = "checked";
+            }
+    }
+</script>
+
+<script>
+    function opcion() {
+        var sel = document.getElementById("materias");
+        var opt = sel.options[sel.selectedIndex].value;
+		if (opt == "0") {
+			M.toast({html: 'Por favor, elige una Materia'})
+            return false;
+        }
+	}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var options = {
+      indicators: true
+  };
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems, options);
+});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.materialboxed');
+		var instances = M.Materialbox.init(elems);
+	  });
+</script>
+{% endblock %}

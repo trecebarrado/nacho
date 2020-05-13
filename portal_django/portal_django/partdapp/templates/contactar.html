@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Particularia - Contacta anunciante{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<br class="hide-on-small-only">
+
+<div style="text-align:center;">
+	<h4>Contacta con el anunciante</h4>
+</div>
+
+<div class="row">
+<div class="col s12 m6" style="padding: 20px;">
+	<div class="card-panel grey lighten-5 z-depth-1">
+	    <p style="margin-top: 0;">
+		    <img class="materialboxed" src="../static/media/{{anuncio.foto}}" width="80px">
+		</p>
+		<span class="black-text">
+			<span id="camposcard">Nombre:</span> &nbsp;{{anuncio.nombre}} <br>
+			<span id="camposcard">Materia:</span> &nbsp;
+			{% for m in materias %}
+            {% if m.id == anuncio.categoria.id %}
+            {{m.materia}}
+            {% endif %}
+        	{% endfor %}
+			<br>
+			<span id="camposcard">Detalle:</span> &nbsp;<cite>{{anuncio.descripcion}}</cite> <br>
+			<span id="camposcard">Horario clases:</span> &nbsp;{{anuncio.horario}} <br>
+			<span id="camposcard">Precio/hora:</span>&nbsp;
+			{% if anuncio.precio == 0 %}
+			No indicado<br>
+			{% else %}
+			{{anuncio.precio}}€<br>
+			{% endif %}
+			{% if anuncio.mail == "SI" %}
+			<span id="camposcard">E-mail:</span> &nbsp;<a href="mailto:{{anuncio.email}}" target="_blank">{{anuncio.email}}</a> <br>
+			{% endif %}
+			{% if anuncio.tfno == "SI" %}
+			<span id="camposcard">Teléfono:</span> &nbsp;{{anuncio.telefono}} <br>
+			{% endif %}
+		</span>
+	</div>
+</div>
+
+<div class="col s12 m6" style="padding:30px; margin-top: -20px;">
+	<form action="form-contactar">
+		<div style="display:none;"><input type="checkbox" name="mail_anunciante" value={{anuncio.email}} checked="checked"></div>
+		<div style="display:none;"><input type="checkbox" name="nom_anunciante" value={{anuncio.nombre}} checked="checked"></div>
+		<div class="input-field">
+			<input id="nombre" type="text" name="nombre" maxlength="50" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{0,50}$" required/>
+			<label for="nombre">Tu nombre</label>
+		</div>
+		<div class="input-field">
+			<textarea id="desc" class="materialize-textarea" name="descripcion" maxlength="500" required></textarea>
+			<label for="desc">Mensaje</label>
+		</div>
+		<div class="input-field">
+			<input id="mail" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+			<label for="mail">E-mail de contacto</label>
+		</div>
+		<div class="input-field">
+			<input id="tfno" type="text" name="telefono" maxlength="9" pattern="[6-7]{1}[0-9]{8}" required/>
+			<label for="tfno">Teléfono de contacto</label>
+		</div><br>
+		<div>
+			<button class="waves-effect waves-light btn" type="submit" style="width: 150px; margin-left:0;">ENVIAR</button>
+			<a class="waves-effect waves-light btn" href="listado">VOLVER</a>
+		</div>
+	</form>
+</div>
+</div>
+
+</div>
+<br><br><br class="hide-on-small-only">
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+});
+</script>
+
+<script>
+    function checks() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+    if (checkedOne) {
+    		console.log("ok");
+            } else {
+				M.toast({html: 'Al menos un horario debe estar seleccionado.'})
+                document.getElementById("c1").checked = "checked";
+            }
+    }
+</script>
+
+<script>
+    function opcion() {
+        var sel = document.getElementById("materias");
+        var opt = sel.options[sel.selectedIndex].value;
+		if (opt == "0") {
+			M.toast({html: 'Por favor, elige una Materia'})
+            return false;
+        }
+	}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var options = {
+      indicators: true
+  };
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems, options);
+});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.materialboxed');
+		var instances = M.Materialbox.init(elems);
+	  });
+</script>
+{% endblock %}
